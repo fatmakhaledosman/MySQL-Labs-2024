@@ -70,3 +70,16 @@
 
 ## 4.Insert your classmates data(5 rows for each table).
 
+![lab1-6]()
+
+![lab1-7]()
+
+![lab1-8]()
+
+![lab1-9]()
+
+![lab1-10]()
+
+![lab1-11]()
+
+![lab1-12]()

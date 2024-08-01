@@ -135,3 +135,171 @@ SHOW TABLES;
 6 rows in set (0.00 sec)
 
 -- 4.Insert your classmates data(5 rows for each table).
+
+mysql> INSERT INTO Student (Student_ID, Name, Email, Address)  
+    -> VALUES  
+    -> (1, 'Fatma Khaled', 'fatma@example.com', '123 Main St'),  
+    -> (2, 'Mohamed Awad', 'mohamed@example.com', '456 Elm St'),  
+    -> (3, 'Wassem Mohamed', 'wassem@example.com', '789 Oak St'),  
+    -> (4, 'Laila Mohamed', 'laila@example.com', '321 Maple St'),  
+    -> (5, 'Hend Mohamed', 'hend@example.com', '901 Pine St'); 
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Student;
++------------+----------------+---------------------+--------------+
+| Student_ID | Name           | Email               | Address      |
++------------+----------------+---------------------+--------------+
+|          1 | Fatma Khaled   | fatma@example.com   | 123 Main St  |
+|          2 | Mohamed Awad   | mohamed@example.com | 456 Elm St   |
+|          3 | Wassem Mohamed | wassem@example.com  | 789 Oak St   |
+|          4 | Laila Mohamed  | laila@example.com   | 321 Maple St |
+|          5 | Hend Mohamed   | hend@example.com    | 901 Pine St  |
++------------+----------------+---------------------+--------------+
+5 rows in set (0.00 sec)
+
+
+
+mysql> INSERT INTO Phone (Phone_ID, Phone_Number, Student_ID)  
+    -> VALUES  
+    -> (1, '123-456-7890', 1),  
+    -> (2, '987-654-3210', 2),  
+    -> (3, '555-123-4567', 3),  
+    -> (4, '555-901-2345', 4),  
+    -> (5, '555-111-2222', 5);  
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Phone;
++----------+--------------+------------+
+| Phone_ID | Phone_Number | Student_ID |
++----------+--------------+------------+
+|        1 | 123-456-7890 |          1 |
+|        2 | 987-654-3210 |          2 |
+|        3 | 555-123-4567 |          3 |
+|        4 | 555-901-2345 |          4 |
+|        5 | 555-111-2222 |          5 |
++----------+--------------+------------+
+5 rows in set (0.01 sec)
+
+
+
+mysql> INSERT INTO Subject (Subject_ID, Name, Description, Max_Score)  
+    -> VALUES  
+    -> (1, 'C', 'C', 100),  
+    -> (2, 'CPP', 'CPP', 100),  
+    -> (3, 'HTML', 'Hyper Text Markup Language', 300),  
+    -> (4, 'CSS', 'Cascading Style Sheet', 100),  
+    -> (5, 'JS', 'JavaScript', 200); 
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Subject;
++------------+------+----------------------------+-----------+
+| Subject_ID | Name | Description                | Max_Score |
++------------+------+----------------------------+-----------+
+|          1 | C    | C                          |       100 |
+|          2 | CPP  | CPP                        |       100 |
+|          3 | HTML | Hyper Text Markup Language |       300 |
+|          4 | CSS  | Cascading Style Sheet      |       100 |
+|          5 | JS   | JavaScript                 |       200 |
++------------+------+----------------------------+-----------+
+5 rows in set (0.01 sec)
+
+
+mysql> INSERT INTO Exam (Exam_ID, Exam_Date, Subject_ID)  
+    -> VALUES  
+    -> (1, '2022-01-01', 1),  
+    -> (2, '2022-01-15', 2),  
+    -> (3, '2022-02-01', 3),  
+    -> (4, '2022-02-15', 4),  
+    -> (5, '2022-03-01', 5);  
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> SELECT * FROM Exam;
++---------+------------+------------+
+| Exam_ID | Exam_Date  | Subject_ID |
++---------+------------+------------+
+|       1 | 2022-01-01 |          1 |
+|       2 | 2022-01-15 |          2 |
+|       3 | 2022-02-01 |          3 |
+|       4 | 2022-02-15 |          4 |
+|       5 | 2022-03-01 |          5 |
++---------+------------+------------+
+5 rows in set (0.00 sec)
+
+
+
+mysql> INSERT INTO Student_Subject (Student_ID, Subject_ID)  
+    -> VALUES  
+    -> (1, 1),  
+    -> (1, 2), 
+    -> (1, 3), 
+    -> (2, 1),  
+    -> (2, 2),  
+    -> (3, 3),
+    -> (3, 5),
+    -> (4, 3),
+    -> (4, 4),
+    -> (4, 5),
+    -> (5, 1),
+    -> (5, 5);
+Query OK, 12 rows affected (0.01 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Student_Subject;
++------------+------------+
+| Student_ID | Subject_ID |
++------------+------------+
+|          1 |          1 |
+|          2 |          1 |
+|          5 |          1 |
+|          1 |          2 |
+|          2 |          2 |
+|          1 |          3 |
+|          3 |          3 |
+|          4 |          3 |
+|          4 |          4 |
+|          3 |          5 |
+|          4 |          5 |
+|          5 |          5 |
++------------+------------+
+12 rows in set (0.00 sec)
+
+
+
+
+mysql> INSERT INTO Exam_Result (Exam_ID, Student_ID, Score)  
+    -> VALUES  
+    -> (1, 1, 80),        
+    -> (1, 2, 90),  
+    -> (1, 5, 40), 
+    -> (2, 1, 70),  
+    -> (2, 2, 20),
+    -> (3, 1, 100),
+    -> (3, 3, 100),
+    -> (3, 4, 10); 
+Query OK, 8 rows affected (0.01 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Exam_Result;
++---------+------------+-------+
+| Exam_ID | Student_ID | Score |
++---------+------------+-------+
+|       1 |          1 |    80 |
+|       1 |          2 |    90 |
+|       1 |          5 |    40 |
+|       2 |          1 |    70 |
+|       2 |          2 |    20 |
+|       3 |          1 |   100 |
+|       3 |          3 |   100 |
+|       3 |          4 |    10 |
++---------+------------+-------+
+8 rows in set (0.01 sec)
+
+
+
+
+
