@@ -304,7 +304,9 @@ SELECT * FROM Student;
 
 
 -- 8. Display male students only.
-
+SELECT * 
+FROM Student 
+WHERE Gender = 'male';
 
 -- 9. Display the number of female students.
 
