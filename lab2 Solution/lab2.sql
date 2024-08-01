@@ -36,6 +36,15 @@ mysql> SELECT * FROM Student;
 
 -- 4. Add foreign key constrains in Your Tables with options on delete cascaded.
 
+-- Note that if you want to modify an existing foreign key constraint,
+-- you would need to drop the existing constraint first and then recreate it with the desired changes. but I found Error so .
+-- I dropped tables. then Recreate them again .
+
+DROP TABLE Phone;
+DROP TABLE Exam_Result;
+DROP TABLE Exam;
+DROP TABLE Student_Subject;
+
 
 -- 5. Update your information by changing data for (gender, birthdate, first name, last name).
 
