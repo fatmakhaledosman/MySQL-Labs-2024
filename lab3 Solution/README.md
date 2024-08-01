@@ -2,7 +2,7 @@
 ## Lab3 Solution
 
 ## Lab3
-![lab1]()
+![lab3](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3.png)
 
 
 
