@@ -247,11 +247,60 @@ WHERE Student_ID = 4;
 +------------+---------------------+--------------+--------+------------+------------+-----------+
 4 rows in set (0.00 sec)
 
+INSERT INTO Student (Student_ID, Email, Address ,Gender,Birth_Date, First_Name,Last_Name )  
+VALUES   
+(5, 'hend@example.com', '901 Pine St', 'Female', '2029-11-12 ', 'Hend',' Mohamed'); 
+
+INSERT INTO Phone (Phone_ID, Phone_Number, Student_ID)  
+VALUES    
+(5, '555-111-2222', 5);  
+
+INSERT INTO Student_Subject (Student_ID, Subject_ID)  
+VALUES  
+(5, 1),
+(5, 5);  
+ 
+INSERT INTO Exam_Result (Exam_ID, Student_ID, Score)  
+VALUES    
+(1, 5, 40); 
 
 -- 6. Insert new student and his score in exam in different subjects as transaction.
+START TRANSACTION; 
+INSERT INTO Student (Student_ID, Email, Address ,Gender,Birth_Date, First_Name,Last_Name )  
+VALUES   
+(6, 'suliman@example.com', '111 Oak St', 'Male', '2026-01-05', 'Suliman',' Mohamed');
 
+INSERT INTO Phone (Phone_ID, Phone_Number, Student_ID)  
+VALUES    
+(6, '555-123-4567', 6); 
+
+INSERT INTO Student_Subject (Student_ID, Subject_ID)  
+VALUES 
+(6, 1), 
+(6, 2), 
+(6, 3);  
+  
+INSERT INTO Exam_Result (Exam_ID, Student_ID, Score)
+ VALUES 
+ (1, 6, 85), 
+ (2, 6, 90),
+ (3, 6, 80);
+   
+COMMIT;  
 
 -- 7. Display all students’ information.
+SELECT * FROM Student;
++------------+---------------------+--------------+--------+------------+------------+-----------+
+| Student_ID | Email               | Address      | Gender | Birth_Date | First_Name | Last_Name |
++------------+---------------------+--------------+--------+------------+------------+-----------+
+|          1 | fatma@example.com   | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |
+|          2 | mohamed@example.com | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |
+|          3 | wassem@example.com  | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |
+|          4 | laila@example.com   | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |
+|          5 | hend@example.com    | 901 Pine St  | Female | 2029-11-12 | Hend       |  Mohamed  |
+|          6 | suliman@example.com | 111 Oak St   | Male   | 2026-01-05 | Suliman    |  Mohamed  |
++------------+---------------------+--------------+--------+------------+------------+-----------+
+6 rows in set (0.00 sec)
 
 
 -- 8. Display male students only.
