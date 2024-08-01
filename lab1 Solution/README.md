@@ -70,16 +70,16 @@
 
 ## 4.Insert your classmates data(5 rows for each table).
 
-![lab1-6]()
+![lab1-6](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-6.png)
 
-![lab1-7]()
+![lab1-7](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-7.png)
 
-![lab1-8]()
+![lab1-8](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-8.png)
 
-![lab1-9]()
+![lab1-9](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-9.png)
 
-![lab1-10]()
+![lab1-10](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-10.png)
 
-![lab1-11]()
+![lab1-11](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-11.png)
 
-![lab1-12]()
+![lab1-12](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-12.png)
