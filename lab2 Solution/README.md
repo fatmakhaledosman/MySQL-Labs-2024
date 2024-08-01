@@ -41,12 +41,12 @@
 
 ![lab2-16](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-16.png)
 
-![lab2-17]()
+![lab2-17](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-17.png)
 
 
 ## 6. Insert new student and his score in exam in different subjects as transaction.
 
-![lab2-18]()
+![lab2-18](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-18.png)
 
 ## 7. Display all students’ information.
 ![lab2-19]()
