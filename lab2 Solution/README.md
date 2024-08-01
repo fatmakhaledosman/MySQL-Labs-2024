@@ -49,7 +49,7 @@
 ![lab2-18](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-18.png)
 
 ## 7. Display all students’ information.
-![lab2-19]()
+![lab2-19](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-19.png)
 
 ## 8. Display male students only.
 
