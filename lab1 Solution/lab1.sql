@@ -121,4 +121,17 @@ CREATE TABLE Exam_Result (
   FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID)  
 );
 
+SHOW TABLES;
++-----------------------------------+
+| Tables_in_electronic_gradekeeping |
++-----------------------------------+
+| Exam                              |
+| Exam_Result                       |
+| Phone                             |
+| Student                           |
+| Student_Subject                   |
+| Subject                           |
++-----------------------------------+
+6 rows in set (0.00 sec)
+
 -- 4.Insert your classmates data(5 rows for each table).
