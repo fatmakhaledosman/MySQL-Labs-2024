@@ -68,6 +68,13 @@
 
 ![lab1-5](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-5.png)
 
+![lab1-5-1]()
+
+![lab1-5-2]()
+
+![lab1-5-3]()
+
+
 ## 4.Insert your classmates data(5 rows for each table).
 
 ![lab1-6](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-6.png)

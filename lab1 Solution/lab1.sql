@@ -134,6 +134,70 @@ SHOW TABLES;
 +-----------------------------------+
 6 rows in set (0.00 sec)
 
+
+mysql> DESCRIBE Student;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| Student_ID | int          | NO   | PRI | NULL    |       |
+| Name       | varchar(50)  | YES  |     | NULL    |       |
+| Email      | varchar(100) | YES  |     | NULL    |       |
+| Address    | varchar(200) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> DESCRIBE Phone;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| Phone_ID     | int         | NO   | PRI | NULL    |       |
+| Phone_Number | varchar(20) | YES  |     | NULL    |       |
+| Student_ID   | int         | YES  | MUL | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> DESCRIBE Subject;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| Subject_ID  | int          | NO   | PRI | NULL    |       |
+| Name        | varchar(50)  | YES  |     | NULL    |       |
+| Description | varchar(200) | YES  |     | NULL    |       |
+| Max_Score   | int          | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> DESCRIBE Exam;
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| Exam_ID    | int  | NO   | PRI | NULL    |       |
+| Exam_Date  | date | YES  |     | NULL    |       |
+| Subject_ID | int  | YES  | MUL | NULL    |       |
++------------+------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
+mysql> DESCRIBE Student_Subject;
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| Student_ID | int  | NO   | PRI | NULL    |       |
+| Subject_ID | int  | NO   | PRI | NULL    |       |
++------------+------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> DESCRIBE Exam_Result;
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| Exam_ID    | int  | NO   | PRI | NULL    |       |
+| Student_ID | int  | NO   | PRI | NULL    |       |
+| Score      | int  | YES  |     | NULL    |       |
++------------+------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
 -- 4.Insert your classmates data(5 rows for each table).
 
 mysql> INSERT INTO Student (Student_ID, Name, Email, Address)  
