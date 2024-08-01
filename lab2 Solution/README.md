@@ -27,6 +27,12 @@
 ![lab2-09](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-09.png)
 
 ![lab2-10](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-10.png)
+
+![lab2-11]()
+
+![lab2-12]()
+
+![lab2-13]()
 ## 5. Update your information by changing data for (gender, birthdate, first name, last name).
 
 

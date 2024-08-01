@@ -133,6 +133,78 @@ VALUES
 (3, 3, 100),
 (3, 4, 10);  
 
+-- to verify it is working you can delete student  with Student_ID = 5
+DELETE FROM Student WHERE Student_ID=5;
+
+-- data for Student that has a Student_ID =5 had been deleted from al tables 
+
+mysql> SELECT * FROM Student;
++------------+---------------------+--------------+--------+------------+------------+-----------+
+| Student_ID | Email               | Address      | Gender | Birth_Date | First_Name | Last_Name |
++------------+---------------------+--------------+--------+------------+------------+-----------+
+|          1 | fatma@example.com   | 123 Main St  | NULL   | NULL       | NULL       | NULL      |
+|          2 | mohamed@example.com | 456 Elm St   | NULL   | NULL       | NULL       | NULL      |
+|          3 | wassem@example.com  | 789 Oak St   | NULL   | NULL       | NULL       | NULL      |
+|          4 | laila@example.com   | 321 Maple St | NULL   | NULL       | NULL       | NULL      |
++------------+---------------------+--------------+--------+------------+------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Phone;
++----------+--------------+------------+
+| Phone_ID | Phone_Number | Student_ID |
++----------+--------------+------------+
+|        1 | 123-456-7890 |          1 |
+|        2 | 987-654-3210 |          2 |
+|        3 | 555-123-4567 |          3 |
+|        4 | 555-901-2345 |          4 |
++----------+--------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Student_Subject;
++------------+------------+
+| Student_ID | Subject_ID |
++------------+------------+
+|          1 |          1 |
+|          2 |          1 |
+|          1 |          2 |
+|          2 |          2 |
+|          1 |          3 |
+|          3 |          3 |
+|          4 |          3 |
+|          4 |          4 |
+|          3 |          5 |
+|          4 |          5 |
++------------+------------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Exam_Result;
++---------+------------+-------+
+| Exam_ID | Student_ID | Score |
++---------+------------+-------+
+|       1 |          1 |    80 |
+|       1 |          2 |    90 |
+|       2 |          1 |    70 |
+|       2 |          2 |    20 |
+|       3 |          1 |   100 |
+|       3 |          3 |   100 |
+|       3 |          4 |    10 |
++---------+------------+-------+
+7 rows in set (0.00 sec)
+
+-- The benefits of using ON DELETE CASCADE include:
+-- Data consistency: Ensures that related data is deleted when the parent row is deleted, maintaining data integrity.
+-- Reduced data redundancy: Prevents orphaned rows in the child table, reducing data redundancy and improving data quality.
+-- Simplified data management: Automates the deletion of related data, reducing the need for manual intervention.
+-- However, it's essential to use ON DELETE CASCADE judiciously, as it can have unintended consequences, such as:
+
+-- Data loss: Deleting a parent row can result in the loss of related data in the child table.
+-- Performance impact: Cascading deletes can impact performance, especially in large datasets.
+-- To mitigate these risks, it's crucial to carefully design your database schema, consider alternative approaches, such as using ON DELETE SET NULL or ON DELETE RESTRICT, and thoroughly test your database operations.
+-- .............
+-- ON DELETE CASCADE constraint is used in MySQL to delete the rows from the child table automatically, when the rows from the parent table are deleted. For example when a student registers in an online learning platform, then all the details of the student are recorded with their unique number/id. All the courses in these online learning platforms had their own code, title, and name. Students can enroll in any course according to their wishes. 
+
+-- There is no rule that all students must enroll in all courses, or they have to join the course on the same date. A student can enroll in one or more courses. Suppose you delete a row from the “Student” table, now you will also want to delete all rows in the “Enroll” table that references the row in the “Student” table. For that, we need ON DELETE CASCADE.  Below are the steps that explain how ON DELETE CASCADE referential action works.
+
 -- 5. Update your information by changing data for (gender, birthdate, first name, last name).
 
 
