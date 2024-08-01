@@ -11,8 +11,6 @@
 
 ![ERD]()
 
-![Mapping-Schema]()
-
 ## electronic_gradekeeping database
 
 ## Entities:
