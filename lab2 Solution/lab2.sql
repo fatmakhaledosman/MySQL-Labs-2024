@@ -45,6 +45,93 @@ DROP TABLE Exam_Result;
 DROP TABLE Exam;
 DROP TABLE Student_Subject;
 
+SHOW TABLES;
++-----------------------------------+
+| Tables_in_electronic_gradekeeping |
++-----------------------------------+
+| Student                           |
+| Subject                           |
++-----------------------------------+
+2 rows in set (0.00 sec)
+
+
+CREATE TABLE Phone (  
+  Phone_ID INT PRIMARY KEY,  
+  Phone_Number VARCHAR(20),  
+  Student_ID INT,  
+  FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID) ON DELETE CASCADE  
+);  
+  
+
+CREATE TABLE Exam (  
+  Exam_ID INT PRIMARY KEY,  
+  Exam_Date DATE,  
+  Subject_ID INT,  
+  FOREIGN KEY (Subject_ID) REFERENCES Subject(Subject_ID) ON DELETE CASCADE 
+);  
+
+CREATE TABLE Student_Subject (  
+  Student_ID INT,  
+  Subject_ID INT,  
+  PRIMARY KEY (Student_ID, Subject_ID),  
+  FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID) ON DELETE CASCADE,  
+  FOREIGN KEY (Subject_ID) REFERENCES Subject(Subject_ID) ON DELETE CASCADE  
+); 
+
+CREATE TABLE Exam_Result (  
+  Exam_ID INT,  
+  Student_ID INT,  
+  Score INT,  
+  PRIMARY KEY (Exam_ID, Student_ID),  
+  FOREIGN KEY (Exam_ID) REFERENCES Exam(Exam_ID) ON DELETE CASCADE,  
+  FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID) ON DELETE CASCADE  
+); 
+
+
+INSERT INTO Phone (Phone_ID, Phone_Number, Student_ID)  
+VALUES  
+(1, '123-456-7890', 1),  
+(2, '987-654-3210', 2),  
+(3, '555-123-4567', 3),  
+(4, '555-901-2345', 4),  
+(5, '555-111-2222', 5);  
+
+INSERT INTO Exam (Exam_ID, Exam_Date, Subject_ID)  
+VALUES  
+(1, '2022-01-01', 1),  
+(2, '2022-01-15', 2),  
+(3, '2022-02-01', 3),  
+(4, '2022-02-15', 4),  
+(5, '2022-03-01', 5);  
+
+
+INSERT INTO Student_Subject (Student_ID, Subject_ID)  
+VALUES  
+(1, 1),  
+(1, 2), 
+(1, 3), 
+(2, 1),  
+(2, 2),  
+(3, 3),
+(3, 5),
+(4, 3),
+(4, 4),
+(4, 5),
+(5, 1),
+(5, 5);  
+
+
+ 
+INSERT INTO Exam_Result (Exam_ID, Student_ID, Score)  
+VALUES  
+(1, 1, 80),        
+(1, 2, 90),  
+(1, 5, 40), 
+(2, 1, 70),  
+(2, 2, 20),
+(3, 1, 100),
+(3, 3, 100),
+(3, 4, 10);  
 
 -- 5. Update your information by changing data for (gender, birthdate, first name, last name).
 
