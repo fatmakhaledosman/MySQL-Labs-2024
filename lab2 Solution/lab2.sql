@@ -206,6 +206,46 @@ mysql> SELECT * FROM Exam_Result;
 -- There is no rule that all students must enroll in all courses, or they have to join the course on the same date. A student can enroll in one or more courses. Suppose you delete a row from the “Student” table, now you will also want to delete all rows in the “Enroll” table that references the row in the “Student” table. For that, we need ON DELETE CASCADE.  Below are the steps that explain how ON DELETE CASCADE referential action works.
 
 -- 5. Update your information by changing data for (gender, birthdate, first name, last name).
+UPDATE Student 
+SET First_Name = 'Fatma',
+    Last_Name = 'khaled', 
+    Gender = 'Female', 
+    Birth_Date = '1992-01-03'
+WHERE Student_ID = 1;
+
+UPDATE Student 
+SET First_Name = 'Mohamed',
+    Last_Name = 'Awad', 
+    Gender = 'Male', 
+    Birth_Date = '1995-11-25'
+WHERE Student_ID = 2;
+
+UPDATE Student 
+SET First_Name = 'Wassem',
+    Last_Name = 'Mohamed', 
+    Gender = 'Male', 
+    Birth_Date = '2020-12-5'
+WHERE Student_ID = 3;
+
+
+UPDATE Student 
+SET First_Name = 'Laila',
+    Last_Name = 'Mohamed', 
+    Gender = 'Female', 
+    Birth_Date = '2020-12-5'
+WHERE Student_ID = 4;
+
+
+ SELECT * FROM Student;
++------------+---------------------+--------------+--------+------------+------------+-----------+
+| Student_ID | Email               | Address      | Gender | Birth_Date | First_Name | Last_Name |
++------------+---------------------+--------------+--------+------------+------------+-----------+
+|          1 | fatma@example.com   | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |
+|          2 | mohamed@example.com | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |
+|          3 | wassem@example.com  | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |
+|          4 | laila@example.com   | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |
++------------+---------------------+--------------+--------+------------+------------+-----------+
+4 rows in set (0.00 sec)
 
 
 -- 6. Insert new student and his score in exam in different subjects as transaction.

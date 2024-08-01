@@ -35,6 +35,11 @@
 ![lab2-13](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-13.png)
 ## 5. Update your information by changing data for (gender, birthdate, first name, last name).
 
+![lab2-14]()
+
+![lab2-15]()
+
+![lab2-16]()
 
 ## 6. Insert new student and his score in exam in different subjects as transaction.
 
