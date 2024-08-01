@@ -52,7 +52,7 @@
 ![lab2-19](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-19.png)
 
 ## 8. Display male students only.
-
+![lab2-20](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-20.png)
 
 ## 9. Display the number of female students.
 
