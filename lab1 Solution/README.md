@@ -58,7 +58,13 @@
 ###
 ## 3.Create your mapped tables with their columns.
 
+![lab1-1](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-1.png)
 
+![lab1-2](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-2.png)
+
+![lab1-3](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-3.png)
+
+![lab1-4](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab1/lab1-4.png)
 
 ## 4.Insert your classmates data(5 rows for each table).
 
