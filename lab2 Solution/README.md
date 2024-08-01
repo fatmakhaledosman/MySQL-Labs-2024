@@ -12,6 +12,9 @@
 
 ![lab2-02](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-02.png)
 ## 4. Add foreign key constrains in Your Tables with options on delete cascaded.
+![lab2-03](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-03.png)
+
+![lab2-04](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-04.png)
 
 
 ## 5. Update your information by changing data for (gender, birthdate, first name, last name).
