@@ -8,10 +8,9 @@
 ## 1. Add gender column for the student table. It holds two value (male or female).
 ## 2. Add birth date column for the student table.
 ## 3. Delete the name column and replace it with two columns first name and last name.
-![lab2-1]()
+![lab2-01](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-01.png)
 
-![lab2-2]()
-
+![lab2-02](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-02.png)
 ## 4. Add foreign key constrains in Your Tables with options on delete cascaded.
 
 
