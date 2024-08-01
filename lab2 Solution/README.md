@@ -16,17 +16,17 @@
 
 ![lab2-04](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-04.png)
 
-![lab2-05]()
+![lab2-05](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-05.png)
 
-![lab2-06]()
+![lab2-06](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-06.png)
 
-![lab2-07]()
+![lab2-07](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-07.png)
 
-![lab2-08]()
+![lab2-08](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-08.png)
 
-![lab2-09]()
+![lab2-09](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-09.png)
 
-![lab2-10]()
+![lab2-10](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-10.png)
 ## 5. Update your information by changing data for (gender, birthdate, first name, last name).
 
 
