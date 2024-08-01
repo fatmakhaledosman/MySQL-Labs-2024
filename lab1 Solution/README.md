@@ -15,7 +15,7 @@
 
 ## electronic_gradekeeping database
 
-### Entities:
+## Entities:
 ### ---------
 ## 1. Student
 ###     - Student_ID (Primary key)
