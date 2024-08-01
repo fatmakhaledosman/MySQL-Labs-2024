@@ -53,11 +53,72 @@ Entities:
     - Score 
     - PRIMARY KEY (Exam_ID, Student_ID)
 
-
-
 -- 3.Create your mapped tables with their columns.
 
+CREATE DATABASE electronic_gradekeeping;
 
+USE electronic_gradekeeping;
 
+ SHOW DATABASES;
++--------------------------+
+| Database                 |
++--------------------------+                 |
+| electronic_gradekeeping  |
++--------------------------+
+
+ SELECT DATABASE();  
++-------------------------+
+| DATABASE()              |
++-------------------------+
+| electronic_gradekeeping |
++-------------------------+
+
+SHOW TABLES;
+Empty set (0.01 sec)
+
+CREATE TABLE Student (  
+  Student_ID INT PRIMARY KEY,  
+  Name VARCHAR(50),  
+  Email VARCHAR(100),  
+  Address VARCHAR(200)  
+);  
+  
+CREATE TABLE Phone (  
+  Phone_ID INT PRIMARY KEY,  
+  Phone_Number VARCHAR(20),  
+  Student_ID INT,  
+  FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID)  
+); 
+
+CREATE TABLE Subject (  
+  Subject_ID INT PRIMARY KEY,  
+  Name VARCHAR(50),  
+  Description VARCHAR(200),  
+  Max_Score INT  
+); 
+
+CREATE TABLE Exam (  
+  Exam_ID INT PRIMARY KEY,  
+  Exam_Date DATE,  
+  Subject_ID INT,  
+  FOREIGN KEY (Subject_ID) REFERENCES Subject(Subject_ID)  
+); 
+
+CREATE TABLE Student_Subject (  
+  Student_ID INT,  
+  Subject_ID INT,  
+  PRIMARY KEY (Student_ID, Subject_ID),  
+  FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID),  
+  FOREIGN KEY (Subject_ID) REFERENCES Subject(Subject_ID)  
+);  
+  
+CREATE TABLE Exam_Result (  
+  Exam_ID INT,  
+  Student_ID INT,  
+  Score INT,  
+  PRIMARY KEY (Exam_ID, Student_ID),  
+  FOREIGN KEY (Exam_ID) REFERENCES Exam(Exam_ID),  
+  FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID)  
+);
 
 -- 4.Insert your classmates data(5 rows for each table).
