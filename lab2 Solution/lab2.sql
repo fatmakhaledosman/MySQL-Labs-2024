@@ -586,9 +586,47 @@ GROUP BY Gender;
 +--------+--------------+
 2 rows in set (0.02 sec)
 
-
-
 -- 16.Display the repeated first names and their counts if higher than 2.
+SELECT First_Name
+FROM Student 
+GROUP BY First_Name 
+HAVING COUNT(*) > 1;
+
++------------+
+| First_Name |
++------------+
+| Mohamed    |
++------------+
+
+
+SELECT First_Name, COUNT(*) AS Count 
+FROM Student 
+GROUP BY First_Name 
+HAVING COUNT(*) > 1;
+
++------------+-------+
+| First_Name | Count |
++------------+-------+
+| Mohamed    |     2 |
++------------+-------+
+1 row in set (0.00 sec)
+
+INSERT INTO Student (Student_ID, First_Name, Last_Name, Email, Address, Gender, Birth_Date) 
+VALUES
+(9, 'Mohamed', 'Ali', 'mohamedali@example.com', '115 Oakto St', 'Male', '1980-02-28');
+
+SELECT First_Name, COUNT(*) AS Count 
+FROM Student 
+GROUP BY First_Name 
+HAVING COUNT(*) > 2;
+
++------------+-------+
+| First_Name | Count |
++------------+-------+
+| Mohamed    |     3 |
++------------+-------+
+1 row in set (0.00 sec)
+
 
 
 -- 17.Create a view for student names with their Tracks names which is belong to it.

@@ -85,6 +85,9 @@
 
 ![lab2-32](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-32.png)
 ## 16.Display the repeated first names and their counts if higher than 2.
+![lab2-33]()
+
+![lab2-34]()
 
 
 ## 17.Create a view for student names with their Tracks names which is belong to it.
