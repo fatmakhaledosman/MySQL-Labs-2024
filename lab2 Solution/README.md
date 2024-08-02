@@ -56,10 +56,10 @@
 
 ## 9. Display the number of female students.
 
-![lab2-21]()
+![lab2-21](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-21.png)
 ## 10.Display male students who are born before 1991-10-01.
 
-![lab2-22]()
+![lab2-22](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-22.png)
 ## 11.Display subjects and their max score sorted by max score.
 
 
