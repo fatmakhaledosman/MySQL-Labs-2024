@@ -83,7 +83,7 @@
 ![lab2-31](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-31.png)
 ## 15.Display the number of males and females.
 
-![lab2-32]()
+![lab2-32](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-32.png)
 ## 16.Display the repeated first names and their counts if higher than 2.
 
 
