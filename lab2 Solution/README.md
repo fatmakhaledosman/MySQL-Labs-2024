@@ -62,12 +62,16 @@
 ![lab2-22](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-22.png)
 ## 11.Display subjects and their max score sorted by max score.
 
-![lab2-23]()
+![lab2-23](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-23.png)
 
-![lab2-24]()
+![lab2-24](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-24.png)
 ## 12.Display the subject with highest max score
 
-![lab2-25]()
+![lab2-25](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-25.png)
+
+![lab2-26](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-26.png)
+
+![lab2-27](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-27.png)
 
 ## 13.Display students’ names that begin with A.
 
