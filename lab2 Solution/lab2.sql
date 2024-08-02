@@ -304,14 +304,63 @@ SELECT * FROM Student;
 
 
 -- 8. Display male students only.
+
 SELECT * 
 FROM Student 
 WHERE Gender = 'male';
 
 -- 9. Display the number of female students.
 
+SELECT * 
+FROM Student 
+WHERE Gender = 'female';
+
++------------+-------------------+--------------+--------+------------+------------+-----------+
+| Student_ID | Email             | Address      | Gender | Birth_Date | First_Name | Last_Name |
++------------+-------------------+--------------+--------+------------+------------+-----------+
+|          1 | fatma@example.com | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |
+|          4 | laila@example.com | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |
+|          5 | hend@example.com  | 901 Pine St  | Female | 2029-11-12 | Hend       |  Mohamed  |
++------------+-------------------+--------------+--------+------------+------------+-----------+
+3 rows in set (0.00 sec)
+
+
+ SELECT COUNT(*) 
+ AS Num_Female_Students 
+ FROM Student 
+ WHERE Gender = 'female';
+
++---------------------+
+| Num_Female_Students |
++---------------------+
+|                   3 |
++---------------------+
+1 row in set (0.01 sec)
+
 
 -- 10.Display male students who are born before 1991-10-01.
+
+SELECT * 
+FROM Student
+WHERE Gender = 'Male' 
+AND Birth_Date < '1991-10-01';
+
+Empty set (0.01 sec)
+
+UPDATE Student 
+SET Birth_Date = '1990-1-12' 
+WHERE Student_ID = 6;
+
+SELECT * 
+FROM Student
+WHERE Gender = 'Male' 
+AND Birth_Date < '1991-10-01';
++------------+---------------------+------------+--------+------------+------------+-----------+
+| Student_ID | Email               | Address    | Gender | Birth_Date | First_Name | Last_Name |
++------------+---------------------+------------+--------+------------+------------+-----------+
+|          6 | suliman@example.com | 111 Oak St | Male   | 1990-01-12 | Suliman    |  Mohamed  |
++------------+---------------------+------------+--------+------------+------------+-----------+
+1 row in set (0.00 sec)
 
 
 -- 11.Display subjects and their max score sorted by max score.

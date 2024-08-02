@@ -56,10 +56,10 @@
 
 ## 9. Display the number of female students.
 
-
+![lab2-21]()
 ## 10.Display male students who are born before 1991-10-01.
 
-
+![lab2-22]()
 ## 11.Display subjects and their max score sorted by max score.
 
 
