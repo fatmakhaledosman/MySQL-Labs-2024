@@ -398,7 +398,6 @@ DESC ;
  ORDER BY Max_Score 
  DESC ;
 
-
  +------+-----------+
 | Name | Max_Score |
 +------+-----------+
@@ -497,10 +496,68 @@ WHERE Max_Score = (SELECT MAX(Max_Score) FROM Subject);
 2 rows in set (0.00 sec)
 
 -- 13.Display students’ names that begin with A.
+SELECT First_Name, Last_Name 
+FROM Student 
+WHERE First_Name 
+LIKE 'M%';
 
++------------+-----------+
+| First_Name | Last_Name |
++------------+-----------+
+| Mohamed    | Awad      |
++------------+-----------+
+1 row in set (0.00 sec)
 
 -- 14.Display the number of students’ their name is “Mohammed”
 
+SELECT *
+FROM Student 
+WHERE First_Name = 'Mohamed';
+
++------------+---------------------+------------+--------+------------+------------+-----------+
+| Student_ID | Email               | Address    | Gender | Birth_Date | First_Name | Last_Name |
++------------+---------------------+------------+--------+------------+------------+-----------+
+|          2 | mohamed@example.com | 456 Elm St | Male   | 1995-11-25 | Mohamed    | Awad      |
++------------+---------------------+------------+--------+------------+------------+-----------+
+1 row in set (0.00 sec)
+
+
+SELECT COUNT(*) AS Num_Students 
+FROM Student 
+WHERE First_Name = 'Mohamed';
+
++--------------+
+| Num_Students |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.01 sec)
+
+
+
+START TRANSACTION;   
+
+INSERT INTO Student (Student_ID, Email, Address ,Gender,Birth_Date, First_Name,Last_Name )  
+VALUES   
+(7, 'm_wassem@example.com', '1 Oak St', 'Male', '2030-01-05', 'Mohamed',' Wassem');
+
+INSERT INTO Phone (Phone_ID, Phone_Number, Student_ID)  
+VALUES    
+(7, '777-123-4567', 7); 
+
+INSERT INTO Student_Subject (Student_ID, Subject_ID)  
+VALUES 
+(7, 2), 
+(7, 4), 
+(7, 5);  
+
+INSERT INTO Exam_Result (Exam_ID, Student_ID, Score)
+ VALUES 
+ (1, 7, 85), 
+ (2, 7, 10),
+ (3, 7, 20);
+
+COMMIT;  
 
 -- 15.Display the number of males and females.
 

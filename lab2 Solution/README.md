@@ -74,11 +74,13 @@
 ![lab2-27](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-27.png)
 
 ## 13.Display students’ names that begin with A.
-
+![lab2-28]()
 
 ## 14.Display the number of students’ their name is “Mohammed”
+![lab2-29]()
 
-
+![lab2-30]()
+![lab2-31]()
 ## 15.Display the number of males and females.
 
 
