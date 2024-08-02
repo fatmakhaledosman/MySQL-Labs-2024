@@ -559,7 +559,33 @@ INSERT INTO Exam_Result (Exam_ID, Student_ID, Score)
 
 COMMIT;  
 
+
+
+SELECT COUNT(*) AS Num_Students 
+FROM Student 
+WHERE First_Name = 'Mohamed';
+
++--------------+
+| Num_Students |
++--------------+
+|            2 |
++--------------+
+1 row in set (0.01 sec)
+
 -- 15.Display the number of males and females.
+
+SELECT Gender, COUNT(*) AS Num_Students 
+FROM Student 
+GROUP BY Gender;
+
++--------+--------------+
+| Gender | Num_Students |
++--------+--------------+
+| Female |            3 |
+| Male   |            4 |
++--------+--------------+
+2 rows in set (0.02 sec)
+
 
 
 -- 16.Display the repeated first names and their counts if higher than 2.
