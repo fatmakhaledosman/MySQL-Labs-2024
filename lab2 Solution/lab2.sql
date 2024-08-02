@@ -365,9 +365,136 @@ AND Birth_Date < '1991-10-01';
 
 -- 11.Display subjects and their max score sorted by max score.
 
+SELECT * FROM Subject;
++------------+------+----------------------------+-----------+
+| Subject_ID | Name | Description                | Max_Score |
++------------+------+----------------------------+-----------+
+|          1 | C    | C                          |       100 |
+|          2 | CPP  | CPP                        |       100 |
+|          3 | HTML | Hyper Text Markup Language |       300 |
+|          4 | CSS  | Cascading Style Sheet      |       100 |
+|          5 | JS   | JavaScript                 |       200 |
++------------+------+----------------------------+-----------+
+5 rows in set (0.00 sec)
+
+SELECT * 
+FROM Subject 
+ORDER BY Max_Score 
+DESC ;
+
++------------+------+----------------------------+-----------+
+| Subject_ID | Name | Description                | Max_Score |
++------------+------+----------------------------+-----------+
+|          3 | HTML | Hyper Text Markup Language |       300 |
+|          5 | JS   | JavaScript                 |       200 |
+|          1 | C    | C                          |       100 |
+|          2 | CPP  | CPP                        |       100 |
+|          4 | CSS  | Cascading Style Sheet      |       100 |
++------------+------+----------------------------+-----------+
+5 rows in set (0.00 sec)
+
+ SELECT Name, Max_Score 
+ FROM Subject 
+ ORDER BY Max_Score 
+ DESC ;
+
+
+ +------+-----------+
+| Name | Max_Score |
++------+-----------+
+| HTML |       300 |
+| JS   |       200 |
+| C    |       100 |
+| CPP  |       100 |
+| CSS  |       100 |
++------+-----------+
+5 rows in set (0.00 sec)
+
 
 -- 12.Display the subject with highest max score
+SELECT Name, Max_Score 
+FROM Subject 
+ORDER BY Max_Score 
+DESC 
+LIMIT 1 ;
 
++------+-----------+
+| Name | Max_Score |
++------+-----------+
+| HTML |       300 |
++------+-----------+
+1 row in set (0.00 sec)
+
+
+
+SELECT Name, Max_Score  
+FROM Subject 
+WHERE Max_Score = (SELECT MAX(Max_Score) FROM Subject);
+
++------+-----------+
+| Name | Max_Score |
++------+-----------+
+| HTML |       300 |
++------+-----------+
+1 row in set (0.00 sec)
+
+
+SELECT * FROM Subject;
++------------+------+----------------------------+-----------+
+| Subject_ID | Name | Description                | Max_Score |
++------------+------+----------------------------+-----------+
+|          1 | C    | C                          |       100 |
+|          2 | CPP  | CPP                        |       100 |
+|          3 | HTML | Hyper Text Markup Language |       300 |
+|          4 | CSS  | Cascading Style Sheet      |       100 |
+|          5 | JS   | JavaScript                 |       200 |
++------------+------+----------------------------+-----------+
+5 rows in set (0.00 sec)
+-----------------------------------------------------------------------------------------
+INSERT INTO Subject (Subject_ID, Name, Description, Max_Score)  
+VALUES  
+(6, 'Python', 'Python Programming', 300);
+
+Query OK, 1 row affected (0.01 sec)
+
+SELECT * FROM Subject;
++------------+--------+----------------------------+-----------+
+| Subject_ID | Name   | Description                | Max_Score |
++------------+--------+----------------------------+-----------+
+|          1 | C      | C                          |       100 |
+|          2 | CPP    | CPP                        |       100 |
+|          3 | HTML   | Hyper Text Markup Language |       300 |
+|          4 | CSS    | Cascading Style Sheet      |       100 |
+|          5 | JS     | JavaScript                 |       200 |
+|          6 | Python | Python Programming         |       300 |
++------------+--------+----------------------------+-----------+
+6 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------
+SELECT Name, Max_Score 
+FROM Subject 
+ORDER BY Max_Score 
+DESC 
+LIMIT 1 ;
+
++--------+-----------+
+| Name   | Max_Score |
++--------+-----------+
+| Python |       300 |
++--------+-----------+
+1 row in set (0.00 sec)
+
+
+SELECT Name, Max_Score  
+FROM Subject 
+WHERE Max_Score = (SELECT MAX(Max_Score) FROM Subject);
+
++--------+-----------+
+| Name   | Max_Score |
++--------+-----------+
+| HTML   |       300 |
+| Python |       300 |
++--------+-----------+
+2 rows in set (0.00 sec)
 
 -- 13.Display students’ names that begin with A.
 
