@@ -89,40 +89,54 @@
 
 ![lab2-34](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-34.png)
 
-
 ## 17.Create a view for student names with their Tracks names which is belong to it.
-![lab2-35]()
-![lab2-36]()
-![lab2-37]()
-![lab2-38]()
-![lab2-39]()
-![lab2-40]()
-![lab2-41]()
-![lab2-42]()
-![lab2-43]()
-![lab2-44]()
+![lab2-35](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-35.png)
+
+![lab2-36](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-36.png)
+
+![lab2-37](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-37.png)
+
+![lab2-38](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-38.png)
+
+![lab2-39](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-39.png)
+
+![lab2-40](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-40.png)
+
+![lab2-41](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-41.png)
+
+![lab2-42](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-42.png)
+
+![lab2-43](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-43.png)
+
+![lab2-44](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-44.png)
 
 ## 18.Create a view for Tracks names and the subjects which is belong/study to it.
-![lab2-45]()
-![lab2-46]()
+![lab2-45](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-45.png)
+
+![lab2-46](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-46.png)
 
 ## 19.Create a view for student names with their subject's names which will study.
-![lab2-47]()
-![lab2-48]()
-![lab2-49]()
-![lab2-50]()
+![lab2-47](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-47.png)
+
+![lab2-48](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-48.png)
+
+![lab2-49](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-49.png)
+
+![lab2-50](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-50.png)
 
 ## 20.Create a view for students’ names, their score and subject name.
-![lab2-51]()
-![lab2-52]()
+![lab2-51](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-51.png)
+
+![lab2-52](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-52.png)
 
 ## 21.Create a temporary view for all subjects with their max_score.
-![lab2-53]()
-
+![lab2-53](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-53.png)
 
 ## 22.Delete students their score is lower than 50 in a particular subject exam.
 
-![lab2-54]()
-![lab2-55]()
-![lab2-56]()
+![lab2-54](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-54.png)
+
+![lab2-55](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-55.png)
+
+![lab2-56](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab2/lab2-56.png)
 

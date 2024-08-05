@@ -1023,7 +1023,41 @@ SELECT * FROM subject_max_scores;
 
 -- 22.Delete students their score is lower than 50 in a particular subject exam.
 
+SELECT * FROM Student;
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |        1 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |        4 |
+|          5 | hend@example.com       | 901 Pine St  | Female | 2029-11-12 | Hend       |  Mohamed  |        2 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 2030-01-05 | Mohamed    |  Wassem   |        1 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+8 rows in set (0.00 sec)
 
+SELECT * FROM Exam_Result;
++---------+------------+-------+
+| Exam_ID | Student_ID | Score |
++---------+------------+-------+
+|       1 |          1 |    80 |
+|       1 |          2 |    90 |
+|       1 |          5 |    40 |
+|       1 |          6 |    85 |
+|       1 |          7 |    85 |
+|       2 |          1 |    70 |
+|       2 |          2 |    20 |
+|       2 |          6 |    90 |
+|       2 |          7 |    10 |
+|       3 |          1 |   100 |
+|       3 |          3 |   100 |
+|       3 |          4 |    10 |
+|       3 |          6 |    80 |
+|       3 |          7 |    20 |
++---------+------------+-------+
+14 rows in set (0.00 sec)
 
 DELETE FROM Student
 WHERE Student_ID IN (
@@ -1032,45 +1066,15 @@ WHERE Student_ID IN (
   WHERE Score < 50
 );
 
+Query OK, 4 rows affected (0.02 sec)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-DELETE s FROM students s
- JOIN exam_results e 
- ON s.student_id = e.student_id
-  JOIN exams ex ON e.exam_id = ex.exam_id 
-  JOIN subjects sub ON ex.subject_id = sub.subject_id
-   WHERE e.score < 50 
-   AND sub.subject_name = 'Subject_Name';
-
-
-
-   DELETE FROM students WHERE student_id IN (SELECT e.student_id
-    FROM exam_results e 
-   JOIN exams ex ON e.exam_id = ex.exam_id 
-   JOIN subjects sub ON ex.subject_id = sub.subject_id 
-   WHERE e.score < 50 
-   AND sub.subject_name = 'Subject_Name');
-
-
-   DELETE s FROM students s 
-   WHERE s.student_id 
-   IN (SELECT student_id 
-   FROM exam_results 
-   WHERE score < 50 
-   AND exam_id 
-   IN (SELECT exam_id FROM exams 
-   WHERE subject_id 
-   IN (SELECT subject_id FROM subjects WHERE subject_name = 'Subject_Name')));
+SELECT * FROM Student;
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+4 rows in set (0.00 sec)
