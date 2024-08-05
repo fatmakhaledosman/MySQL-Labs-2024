@@ -966,17 +966,86 @@ mysql> SELECT * FROM StudentNames_subjects2;
 7 rows in set (0.01 sec)
 
 -- 20.Create a view for students’ names, their score and subject name.
+SELECT CONCAT(s.First_Name, s.Last_Name) AS student_name, e.Score , sub.Name AS Subject_Name   
+FROM Student s  
+JOIN Exam_Result e ON s.Student_ID = e.Student_ID  
+JOIN Exam ex ON e.Exam_ID = ex.Exam_ID
+JOIN Subject sub ON ex.Subject_ID = sub.Subject_ID;
++-----------------+-------+--------------+
+| student_name    | Score | Subject_Name |
++-----------------+-------+--------------+
+| Fatmakhaled     |    80 | C            |
+| MohamedAwad     |    90 | C            |
+| Hend Mohamed    |    40 | C            |
+| Suliman Mohamed |    85 | C            |
+| Mohamed Wassem  |    85 | C            |
+| Fatmakhaled     |    70 | CPP          |
+| MohamedAwad     |    20 | CPP          |
+| Suliman Mohamed |    90 | CPP          |
+| Mohamed Wassem  |    10 | CPP          |
+| Fatmakhaled     |   100 | HTML         |
+| WassemMohamed   |   100 | HTML         |
+| LailaMohamed    |    10 | HTML         |
+| Suliman Mohamed |    80 | HTML         |
+| Mohamed Wassem  |    20 | HTML         |
++-----------------+-------+--------------+
+14 rows in set (0.01 sec)
+
 
 CREATE VIEW student_scores AS  
-SELECT s.name AS student_name, e.score, sub.subject_name  
-FROM students s  
-JOIN exam_results e ON s.student_id = e.student_id  
-JOIN exams ex ON e.exam_id = ex.exam_id  
-JOIN subjects sub ON ex.subject_id = sub.subject_id;
+SELECT CONCAT(s.First_Name, s.Last_Name) AS student_name, e.Score , sub.Name AS Subject_Name   
+FROM Student s  
+JOIN Exam_Result e ON s.Student_ID = e.Student_ID  
+JOIN Exam ex ON e.Exam_ID = ex.Exam_ID
+JOIN Subject sub ON ex.Subject_ID = sub.Subject_ID;
+
 -- 21.Create a temporary view for all subjects with their max_score.
 
-CREATE TEMPORARY VIEW subject_max_scores AS SELECT subject_name, max_score FROM subjects;
+CREATE VIEW subject_max_scores AS
+SELECT Name, Max_Score 
+FROM Subject;
+
+
+Query OK, 0 rows affected (0.01 sec)
+
+SELECT * FROM subject_max_scores;
++--------+-----------+
+| Name   | Max_Score |
++--------+-----------+
+| C      |       100 |
+| CPP    |       100 |
+| HTML   |       300 |
+| CSS    |       100 |
+| JS     |       200 |
+| Python |       300 |
++--------+-----------+
+6 rows in set (0.00 sec)
+
 -- 22.Delete students their score is lower than 50 in a particular subject exam.
+
+
+
+DELETE FROM Student
+WHERE Student_ID IN (
+  SELECT Student_ID
+  FROM Exam_Result
+  WHERE Score < 50
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 DELETE s FROM students s
  JOIN exam_results e 

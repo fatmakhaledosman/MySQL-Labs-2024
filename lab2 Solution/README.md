@@ -113,12 +113,16 @@
 ![lab2-50]()
 
 ## 20.Create a view for students’ names, their score and subject name.
-
+![lab2-51]()
+![lab2-52]()
 
 ## 21.Create a temporary view for all subjects with their max_score.
+![lab2-53]()
 
 
 ## 22.Delete students their score is lower than 50 in a particular subject exam.
 
-
+![lab2-54]()
+![lab2-55]()
+![lab2-56]()
 
