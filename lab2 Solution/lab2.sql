@@ -627,21 +627,381 @@ HAVING COUNT(*) > 2;
 +------------+-------+
 1 row in set (0.00 sec)
 
-
-
 -- 17.Create a view for student names with their Tracks names which is belong to it.
+-- part 1 ---add Track table and its relations 
+
+
+SELECT * FROM Student;
++------------+------------------------+--------------+--------+------------+------------+-----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name |
++------------+------------------------+--------------+--------+------------+------------+-----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |
+|          5 | hend@example.com       | 901 Pine St  | Female | 2029-11-12 | Hend       |  Mohamed  |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 2030-01-05 | Mohamed    |  Wassem   |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |
++------------+------------------------+--------------+--------+------------+------------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Subject;
++------------+--------+----------------------------+-----------+
+| Subject_ID | Name   | Description                | Max_Score |
++------------+--------+----------------------------+-----------+
+|          1 | C      | C                          |       100 |
+|          2 | CPP    | CPP                        |       100 |
+|          3 | HTML   | Hyper Text Markup Language |       300 |
+|          4 | CSS    | Cascading Style Sheet      |       100 |
+|          5 | JS     | JavaScript                 |       200 |
+|          6 | Python | Python Programming         |       300 |
++------------+--------+----------------------------+-----------+
+6 rows in set (0.00 sec)
+
+CREATE TABLE Track 
+(Track_ID int PRIMARY KEY, 
+ Track_Name varchar(50) 
+); 
+
+INSERT INTO Track (Track_ID, Track_Name)
+VALUES 
+(1, 'Open Sourec Application'), 
+(2, 'Cloud Platform Development'), 
+(3, 'Artificial intelligence'),
+(4, 'Full Stack Development Using Python'); 
+
+SELECT * FROM Track;
+
++----------+-------------------------------------+
+| Track_ID | Track_Name                          |
++----------+-------------------------------------+
+|        1 | Open Source Application             |
+|        2 | Cloud Platform Development          |
+|        3 | Artificial intelligence             |
+|        4 | Full Stack Development Using Python |
++----------+-------------------------------------+
+4 rows in set (0.00 sec)
+
+
+
+ALTER TABLE Student  
+ADD COLUMN Track_ID INT,  
+ADD FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID) ON DELETE CASCADE;
+
+Query OK, 8 rows affected (0.10 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+
+
+ALTER TABLE Subject  
+ADD COLUMN Track_ID INT,  
+ADD FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID) ON DELETE CASCADE;
+
+
+Query OK, 6 rows affected (0.09 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+
+
+UPDATE Student  
+SET Track_ID = CASE  
+   WHEN Student_ID = 1 THEN 2  
+   WHEN Student_ID = 2 THEN 1
+   WHEN Student_ID = 3 THEN 3
+   WHEN Student_ID = 4 THEN 4  
+   WHEN Student_ID = 5 THEN 2
+   WHEN Student_ID = 6 THEN 2
+   WHEN Student_ID = 7 THEN 1
+   WHEN Student_ID = 9 THEN 1
+END;
+
+
+Query OK, 8 rows affected (0.01 sec)
+Rows matched: 8  Changed: 8  Warnings: 0
+
+
+UPDATE Subject  
+SET Track_ID = CASE  
+   WHEN Subject_ID = 1 THEN 2  
+   WHEN Subject_ID = 2 THEN 1
+   WHEN Subject_ID = 3 THEN 3
+   WHEN Subject_ID = 4 THEN 4  
+   WHEN Subject_ID = 5 THEN 2
+   WHEN Subject_ID = 6 THEN 2
+END;
+
+Query OK, 6 rows affected (0.02 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+
+
+SELECT * FROM Student;
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |        1 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |        4 |
+|          5 | hend@example.com       | 901 Pine St  | Female | 2029-11-12 | Hend       |  Mohamed  |        2 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 2030-01-05 | Mohamed    |  Wassem   |        1 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+8 rows in set (0.00 sec)
+
+
+SELECT * FROM Subject;
+
++------------+--------+----------------------------+-----------+----------+
+| Subject_ID | Name   | Description                | Max_Score | Track_ID |
++------------+--------+----------------------------+-----------+----------+
+|          1 | C      | C                          |       100 |        2 |
+|          2 | CPP    | CPP                        |       100 |        1 |
+|          3 | HTML   | Hyper Text Markup Language |       300 |        3 |
+|          4 | CSS    | Cascading Style Sheet      |       100 |        4 |
+|          5 | JS     | JavaScript                 |       200 |        2 |
+|          6 | Python | Python Programming         |       300 |        2 |
++------------+--------+----------------------------+-----------+----------+
+6 rows in set (0.00 sec)
+
+
+-- Create a view for student names with their Tracks names which is belong to it.
+
+CREATE VIEW student_tracks AS  
+SELECT CONCAT(s.First_Name, s.Last_Name) AS Student_Name , t.Track_Name 
+FROM Student s
+JOIN Track t ON s.Track_ID = t.Track_ID;
+
+SELECT * FROM student_tracks;
+
+
+
+SELECT CONCAT(s.First_Name, s.Last_Name) AS Student_Name , t.Track_Name 
+FROM Student s
+JOIN Track t ON s.Track_ID = t.Track_ID;
++-----------------+-------------------------------------+
+| Student_Name    | Track_Name                          |
++-----------------+-------------------------------------+
+| Fatmakhaled     | Cloud Platform Development          |
+| MohamedAwad     | Open Source Application             |
+| WassemMohamed   | Artificial intelligence             |
+| LailaMohamed    | Full Stack Development Using Python |
+| Hend Mohamed    | Cloud Platform Development          |
+| Suliman Mohamed | Cloud Platform Development          |
+| Mohamed Wassem  | Open Source Application             |
+| MohamedAli      | Open Source Application             |
++-----------------+-------------------------------------+
+8 rows in set (0.00 sec)
+
+CREATE VIEW student_tracks AS  
+SELECT CONCAT(s.First_Name, s.Last_Name) AS Student_Name , t.Track_Name 
+FROM Student s
+ JOIN Track t ON s.Track_ID = t.Track_ID;
+Query OK, 0 rows affected (0.02 sec)
+
+
+SELECT * FROM student_tracks;
++-----------------+-------------------------------------+
+| Student_Name    | Track_Name                          |
++-----------------+-------------------------------------+
+| Fatmakhaled     | Cloud Platform Development          |
+| MohamedAwad     | Open Source Application             |
+| WassemMohamed   | Artificial intelligence             |
+| LailaMohamed    | Full Stack Development Using Python |
+| Hend Mohamed    | Cloud Platform Development          |
+| Suliman Mohamed | Cloud Platform Development          |
+| Mohamed Wassem  | Open Source Application             |
+| MohamedAli      | Open Source Application             |
++-----------------+-------------------------------------+
+8 rows in set (0.00 sec)
+
 
 
 -- 18.Create a view for Tracks names and the subjects which is belong/study to it.
 
+SELECT * FROM track_subjects;
+
+SELECT t.Track_Name , GROUP_CONCAT(s.Name) AS Subject_Name 
+FROM Track t
+JOIN Subject s ON t.Track_ID = s.Track_ID
+GROUP BY t.Track_Name;
+
++-------------------------------------+--------------+
+| Track_Name                          | Subject_Name |
++-------------------------------------+--------------+
+| Artificial intelligence             | HTML         |
+| Cloud Platform Development          | C,JS,Python  |
+| Full Stack Development Using Python | CSS          |
+| Open Source Application             | CPP          |
++-------------------------------------+--------------+
+4 rows in set (0.00 sec)
+
+CREATE VIEW track_subjects AS 
+SELECT t.Track_Name , GROUP_CONCAT(s.Name) AS Subject_Name 
+FROM Track t
+JOIN Subject s ON t.Track_ID = s.Track_ID
+GROUP BY t.Track_Name;
+Query OK, 0 rows affected (0.02 sec)
+
+
+SELECT * FROM track_subjects;
++-------------------------------------+--------------+
+| Track_Name                          | Subject_Name |
++-------------------------------------+--------------+
+| Artificial intelligence             | HTML         |
+| Cloud Platform Development          | Python,JS,C  |
+| Full Stack Development Using Python | CSS          |
+| Open Source Application             | CPP          |
++-------------------------------------+--------------+
+4 rows in set (0.01 sec)
+
 
 -- 19.Create a view for student names with their subject's names which will study.
 
+SELECT CONCAT(s.First_Name, s.Last_Name) AS Student_Name , sub.Name AS Subject_Name 
+FROM Student s 
+JOIN Student_Subject ss ON s.Student_ID = ss.Student_ID 
+JOIN Subject sub ON ss.Subject_ID = sub.Subject_ID;
++-----------------+--------------+
+| Student_Name    | Subject_Name |
++-----------------+--------------+
+| Fatmakhaled     | C            |
+| MohamedAwad     | C            |
+| Hend Mohamed    | C            |
+| Suliman Mohamed | C            |
+| Fatmakhaled     | CPP          |
+| MohamedAwad     | CPP          |
+| Suliman Mohamed | CPP          |
+| Mohamed Wassem  | CPP          |
+| Fatmakhaled     | HTML         |
+| WassemMohamed   | HTML         |
+| LailaMohamed    | HTML         |
+| Suliman Mohamed | HTML         |
+| LailaMohamed    | CSS          |
+| Mohamed Wassem  | CSS          |
+| WassemMohamed   | JS           |
+| LailaMohamed    | JS           |
+| Hend Mohamed    | JS           |
+| Mohamed Wassem  | JS           |
++-----------------+--------------+
+18 rows in set (0.00 sec)
+
+
+CREATE VIEW StudentNames_subjects AS  
+SELECT CONCAT(s.First_Name, s.Last_Name) AS Student_Name , sub.Name AS Subject_Name 
+FROM Student s 
+JOIN Student_Subject ss ON s.Student_ID = ss.Student_ID 
+JOIN Subject sub ON ss.Subject_ID = sub.Subject_ID;
+
+Query OK, 0 rows affected (0.02 sec)
+
+
+SELECT * FROM StudentNames_subjects;
++-----------------+--------------+
+| Student_Name    | Subject_Name |
++-----------------+--------------+
+| Fatmakhaled     | C            |
+| MohamedAwad     | C            |
+| Hend Mohamed    | C            |
+| Suliman Mohamed | C            |
+| Fatmakhaled     | CPP          |
+| MohamedAwad     | CPP          |
+| Suliman Mohamed | CPP          |
+| Mohamed Wassem  | CPP          |
+| Fatmakhaled     | HTML         |
+| WassemMohamed   | HTML         |
+| LailaMohamed    | HTML         |
+| Suliman Mohamed | HTML         |
+| LailaMohamed    | CSS          |
+| Mohamed Wassem  | CSS          |
+| WassemMohamed   | JS           |
+| LailaMohamed    | JS           |
+| Hend Mohamed    | JS           |
+| Mohamed Wassem  | JS           |
++-----------------+--------------+
+18 rows in set (0.00 sec)
+
+
+SELECT CONCAT(s.First_Name, s.Last_Name) AS Student_Name , GROUP_CONCAT(sub.Name) AS Subject_Name
+FROM Student s
+JOIN Student_Subject ss ON s.Student_ID = ss.Student_ID 
+JOIN Subject sub ON ss.Subject_ID = sub.Subject_ID
+GROUP BY s.Student_ID , s.First_Name , s.Last_Name;
++-----------------+--------------+
+| Student_Name    | Subject_Name |
++-----------------+--------------+
+| Fatmakhaled     | C,CPP,HTML   |
+| MohamedAwad     | C,CPP        |
+| WassemMohamed   | HTML,JS      |
+| LailaMohamed    | HTML,CSS,JS  |
+| Hend Mohamed    | C,JS         |
+| Suliman Mohamed | CPP,C,HTML   |
+| Mohamed Wassem  | CPP,CSS,JS   |
++-----------------+--------------+
+7 rows in set (0.01 sec)
+
+
+CREATE VIEW StudentNames_subjects2 AS 
+SELECT CONCAT(s.First_Name, s.Last_Name) AS Student_Name , GROUP_CONCAT(sub.Name) AS Subject_Name
+FROM Student s
+JOIN Student_Subject ss ON s.Student_ID = ss.Student_ID 
+JOIN Subject sub ON ss.Subject_ID = sub.Subject_ID
+GROUP BY s.Student_ID , s.First_Name , s.Last_Name;
+
+
+mysql> SELECT * FROM StudentNames_subjects2;
++-----------------+--------------+
+| Student_Name    | Subject_Name |
++-----------------+--------------+
+| Fatmakhaled     | C,CPP,HTML   |
+| MohamedAwad     | C,CPP        |
+| WassemMohamed   | HTML,JS      |
+| LailaMohamed    | HTML,CSS,JS  |
+| Hend Mohamed    | C,JS         |
+| Suliman Mohamed | CPP,C,HTML   |
+| Mohamed Wassem  | CPP,CSS,JS   |
++-----------------+--------------+
+7 rows in set (0.01 sec)
 
 -- 20.Create a view for students’ names, their score and subject name.
 
-
+CREATE VIEW student_scores AS  
+SELECT s.name AS student_name, e.score, sub.subject_name  
+FROM students s  
+JOIN exam_results e ON s.student_id = e.student_id  
+JOIN exams ex ON e.exam_id = ex.exam_id  
+JOIN subjects sub ON ex.subject_id = sub.subject_id;
 -- 21.Create a temporary view for all subjects with their max_score.
 
-
+CREATE TEMPORARY VIEW subject_max_scores AS SELECT subject_name, max_score FROM subjects;
 -- 22.Delete students their score is lower than 50 in a particular subject exam.
+
+DELETE s FROM students s
+ JOIN exam_results e 
+ ON s.student_id = e.student_id
+  JOIN exams ex ON e.exam_id = ex.exam_id 
+  JOIN subjects sub ON ex.subject_id = sub.subject_id
+   WHERE e.score < 50 
+   AND sub.subject_name = 'Subject_Name';
+
+
+
+   DELETE FROM students WHERE student_id IN (SELECT e.student_id
+    FROM exam_results e 
+   JOIN exams ex ON e.exam_id = ex.exam_id 
+   JOIN subjects sub ON ex.subject_id = sub.subject_id 
+   WHERE e.score < 50 
+   AND sub.subject_name = 'Subject_Name');
+
+
+   DELETE s FROM students s 
+   WHERE s.student_id 
+   IN (SELECT student_id 
+   FROM exam_results 
+   WHERE score < 50 
+   AND exam_id 
+   IN (SELECT exam_id FROM exams 
+   WHERE subject_id 
+   IN (SELECT subject_id FROM subjects WHERE subject_name = 'Subject_Name')));

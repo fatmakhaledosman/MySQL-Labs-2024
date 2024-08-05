@@ -91,13 +91,26 @@
 
 
 ## 17.Create a view for student names with their Tracks names which is belong to it.
-
+![lab2-35]()
+![lab2-36]()
+![lab2-37]()
+![lab2-38]()
+![lab2-39]()
+![lab2-40]()
+![lab2-41]()
+![lab2-42]()
+![lab2-43]()
+![lab2-44]()
 
 ## 18.Create a view for Tracks names and the subjects which is belong/study to it.
-
+![lab2-45]()
+![lab2-46]()
 
 ## 19.Create a view for student names with their subject's names which will study.
-
+![lab2-47]()
+![lab2-48]()
+![lab2-49]()
+![lab2-50]()
 
 ## 20.Create a view for students’ names, their score and subject name.
 
