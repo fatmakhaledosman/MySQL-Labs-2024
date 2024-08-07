@@ -20,7 +20,9 @@
 ![lab3-06](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-06.png)
 
 ## 4. Display the name of students with their Rounded score in each Exam
-
+![lab3-07]()
+![lab3-08]()
+![lab3-09]()
 
 ## 5. Display the name of students with the year of Birthdate
 

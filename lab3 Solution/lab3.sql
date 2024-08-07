@@ -55,8 +55,8 @@ FROM Exam;
 -- 3. Display name and age of each students
 
 Student Table 
-Student_ID ,Email, Address ,Gender,   
-Birth_Date ,First_Name ,Last_Name , Track_ID  
+( Student_ID ,Email, Address ,Gender,   
+Birth_Date ,First_Name ,Last_Name , Track_ID  )
 
 mysql> SELECT * FROM Student;
 +------------+------------------------+--------------+--------+------------+------------+-----------+----------+
@@ -126,8 +126,79 @@ FROM
 +------------------+------+
 10 rows in set (0.00 sec)
 
-
 -- 4. Display the name of students with their Rounded score in each Exam
+Student Table 
+( Student_ID ,Email, Address ,Gender,Birth_Date ,First_Name ,Last_Name , Track_ID  )
+Exam ( Exam_ID , Exam_Date  , Subject_ID) 
+Exam_Result ( Exam_ID , Student_ID , Score )
+
+mysql> SELECT * FROM Exam_Result;
++---------+------------+-------+
+| Exam_ID | Student_ID | Score |
++---------+------------+-------+
+|       1 |          1 |    80 |
+|       1 |          2 |    90 |
+|       1 |          5 |    40 |
+|       1 |          6 |    85 |
+|       1 |          7 |    85 |
+|       1 |         10 |    60 |
+|       1 |         11 |    85 |
+|       2 |          1 |    70 |
+|       2 |          2 |    20 |
+|       2 |          6 |    90 |
+|       2 |          7 |    10 |
+|       2 |         10 |    90 |
+|       2 |         11 |    90 |
+|       3 |          1 |   100 |
+|       3 |          3 |   100 |
+|       3 |          4 |    10 |
+|       3 |          6 |    80 |
+|       3 |          7 |    20 |
+|       3 |         10 |    55 |
+|       3 |         11 |    80 |
++---------+------------+-------+
+20 rows in set (0.00 sec)
+
+
+
+SELECT  
+  CONCAT(s.First_Name, '', s.Last_Name) AS Student_Name,  
+  e.Exam_Date,  
+  ROUND(er.Score) AS Rounded_Score  
+FROM  
+  Student s  
+  JOIN Exam_Result er ON s.Student_ID = er.Student_ID  
+  JOIN Exam e ON er.Exam_ID = e.Exam_ID  
+ORDER BY  
+  s.Student_ID, e.Exam_Date;
+
+
++-----------------+------------+---------------+
+| Student_Name    | Exam_Date  | Rounded_Score |
++-----------------+------------+---------------+
+| Fatmakhaled     | 2022-01-01 |            80 |
+| Fatmakhaled     | 2022-01-15 |            70 |
+| Fatmakhaled     | 2022-02-01 |           100 |
+| MohamedAwad     | 2022-01-01 |            90 |
+| MohamedAwad     | 2022-01-15 |            20 |
+| WassemMohamed   | 2022-02-01 |           100 |
+| LailaMohamed    | 2022-02-01 |            10 |
+| Hend Mohamed    | 2022-01-01 |            40 |
+| Suliman Mohamed | 2022-01-01 |            85 |
+| Suliman Mohamed | 2022-01-15 |            90 |
+| Suliman Mohamed | 2022-02-01 |            80 |
+| Mohamed Wassem  | 2022-01-01 |            85 |
+| Mohamed Wassem  | 2022-01-15 |            10 |
+| Mohamed Wassem  | 2022-02-01 |            20 |
+| Ali Mahmoud     | 2022-01-01 |            60 |
+| Ali Mahmoud     | 2022-01-15 |            90 |
+| Ali Mahmoud     | 2022-02-01 |            55 |
+| Assma Ahmed     | 2022-01-01 |            85 |
+| Assma Ahmed     | 2022-01-15 |            90 |
+| Assma Ahmed     | 2022-02-01 |            80 |
++-----------------+------------+---------------+
+20 rows in set (0.01 sec)
+
 
 
 -- 5. Display the name of students with the year of Birthdate
