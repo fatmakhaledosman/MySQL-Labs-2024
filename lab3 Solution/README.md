@@ -32,14 +32,14 @@
 ![lab3-11](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-11.png)
 
 ## 6. Add new exam result, in date column use NOW
-
+![lab3-12]()
 
 ## 7. Create Hello world function which take username and return welcome message to user using his name
-
+![lab3-13]()
 
 ## 8. Create multiply function which take two number and return the multiply of them
 
-
+![lab3-14]()
 ## 9. Create function which takes student id and Exam id and return score the student in Exam.
 
 

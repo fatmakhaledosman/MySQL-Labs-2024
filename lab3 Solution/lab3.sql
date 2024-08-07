@@ -241,15 +241,77 @@ FROM
 +------------------+------------+
 10 rows in set (0.00 sec)
 
-
-
 -- 6. Add new exam result, in date column use NOW
+SELECT * FROM Exam;
++---------+------------+------------+
+| Exam_ID | Exam_Date  | Subject_ID |
++---------+------------+------------+
+|       1 | 2022-01-01 |          1 |
+|       2 | 2022-01-15 |          2 |
+|       3 | 2022-02-01 |          3 |
+|       4 | 2022-02-15 |          4 |
+|       5 | 2022-03-01 |          5 |
++---------+------------+------------+
+5 rows in set (0.00 sec)
 
+INSERT INTO Exam (Exam_ID, Exam_Date, Subject_ID) 
+VALUES
+(6, NOW(), 1);
+
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+SELECT * FROM Exam;
++---------+------------+------------+
+| Exam_ID | Exam_Date  | Subject_ID |
++---------+------------+------------+
+|       1 | 2022-01-01 |          1 |
+|       2 | 2022-01-15 |          2 |
+|       3 | 2022-02-01 |          3 |
+|       4 | 2022-02-15 |          4 |
+|       5 | 2022-03-01 |          5 |
+|       6 | 2024-08-07 |          1 |
++---------+------------+------------+
+6 rows in set (0.00 sec)
 
 -- 7. Create Hello world function which take username and return welcome message to user using his name
 
+CREATE FUNCTION hello (username VARCHAR(50)) 
+RETURNS VARCHAR(100) 
+DETERMINISTIC  
+RETURN CONCAT('Hello, ', username, '!'); 
+
+SELECT hello('Wassem Mohamed');
++-------------------------+
+| hello('Wassem Mohamed') |
++-------------------------+
+| Hello, Wassem Mohamed!  |
++-------------------------+
+1 row in set (0.01 sec)
 
 -- 8. Create multiply function which take two number and return the multiply of them
+DROP FUNCTION IF EXISTS product;
+
+CREATE FUNCTION product(num1 INT, num2 INT) 
+RETURNS VARCHAR(50) 
+DETERMINISTIC  
+RETURN CONCAT('product= ',num1 * num2,';');
+
+
+mysql> SELECT product(5 , 2);
++----------------+
+| product(5 , 2) |
++----------------+
+| product= 10;   |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT product(5 , 5);
++----------------+
+| product(5 , 5) |
++----------------+
+| product= 25;   |
++----------------+
+1 row in set (0.00 sec)
 
 
 -- 9. Create function which takes student id and Exam id and return score the student in Exam.
