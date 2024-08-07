@@ -27,8 +27,9 @@
 ![lab3-09](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-09.png)
 
 ## 5. Display the name of students with the year of Birthdate
-![lab3-10]()
-![lab3-11]()
+![lab3-10](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-10.png)
+
+![lab3-11](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-11.png)
 
 ## 6. Add new exam result, in date column use NOW
 
