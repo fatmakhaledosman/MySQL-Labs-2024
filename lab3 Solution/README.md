@@ -5,16 +5,19 @@
 ![lab3](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3.png)
 
 ## 1. Insert new student and his score in exam in different subjects as transaction.
-![lab3-01]()
-![lab3-02]()
-![lab3-03]()
+![lab3-01](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-01.png)
+
+![lab3-02](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-02.png)
+
+![lab3-03](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-03.png)
 
 ## 2. Display the date of exam as the following: day 'month name' year.
-![lab3-04]()
+![lab3-04](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-04.png)
 
 ## 3. Display name and age of each students
-![lab3-05]()
-![lab3-06]()
+![lab3-05](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-05.png)
+
+![lab3-06](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-06.png)
 
 ## 4. Display the name of students with their Rounded score in each Exam
 
