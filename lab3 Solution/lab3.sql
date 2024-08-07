@@ -313,8 +313,72 @@ mysql> SELECT product(5 , 5);
 +----------------+
 1 row in set (0.00 sec)
 
-
 -- 9. Create function which takes student id and Exam id and return score the student in Exam.
+Student Table 
+( Student_ID ,Email, Address ,Gender,Birth_Date ,First_Name ,Last_Name , Track_ID  )
+Exam ( Exam_ID , Exam_Date  , Subject_ID) 
+Exam_Result ( Exam_ID , Student_ID , Score )
+
+mysql> SELECT Score FROM Exam_Result WHERE Student_ID = 1 AND Exam_ID = 1;
++-------+
+| Score |
++-------+
+|    80 |
++-------+
+1 row in set (0.00 sec)
+
+
+
+DROP FUNCTION IF EXISTS get_student_score;
+
+CREATE FUNCTION get_student_score(p_student_id INT, p_exam_id INT)  
+RETURNS INT  
+DETERMINISTIC 
+RETURN (SELECT Score FROM Exam_Result WHERE Student_ID = p_student_id AND Exam_ID = p_exam_id);
+
+SELECT get_student_score(1, 1) AS score;
+
++-------+
+| score |
++-------+
+|    80 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT get_student_score(1, 2) AS score;
++-------+
+| score |
++-------+
+|    70 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Exam_Result;
++---------+------------+-------+
+| Exam_ID | Student_ID | Score |
++---------+------------+-------+
+|       1 |          1 |    80 |
+|       1 |          2 |    90 |
+|       1 |          5 |    40 |
+|       1 |          6 |    85 |
+|       1 |          7 |    85 |
+|       1 |         10 |    60 |
+|       1 |         11 |    85 |
+|       2 |          1 |    70 |
+|       2 |          2 |    20 |
+|       2 |          6 |    90 |
+|       2 |          7 |    10 |
+|       2 |         10 |    90 |
+|       2 |         11 |    90 |
+|       3 |          1 |   100 |
+|       3 |          3 |   100 |
+|       3 |          4 |    10 |
+|       3 |          6 |    80 |
+|       3 |          7 |    20 |
+|       3 |         10 |    55 |
+|       3 |         11 |    80 |
++---------+------------+-------+
+20 rows in set (0.00 sec)
 
 
 -- 10. Create function which takes Exam id and return the number of students who failed in a Exam (Score less than 50).
