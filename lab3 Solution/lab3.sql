@@ -199,7 +199,48 @@ ORDER BY
 +-----------------+------------+---------------+
 20 rows in set (0.01 sec)
 
--- 5. Display the name of students with the year of Birthdate
+-- 5. Display the name of students with the year of Birthdate 
+mysql> SELECT * FROM Student;
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |        1 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |        4 |
+|          5 | hend@example.com       | 901 Pine St  | Female | 1992-10-23 | Hend       |  Mohamed  |        2 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 1996-12-23 | Mohamed    |  Wassem   |        1 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
+|         10 | ali@example.com        | 111 st St    | Male   | 1998-01-05 | Ali        |  Mahmoud  |        1 |
+|         11 | assma@example.com      | 111 Oak St   | Female | 1999-01-05 | Assma      |  Ahmed    |        2 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+10 rows in set (0.00 sec)
+
+
+
+SELECT 
+    CONCAT(First_Name,' ', Last_Name) AS Student_Name,
+    YEAR(Birth_Date) AS Birth_Year  
+FROM 
+    Student;
+
++------------------+------------+
+| Student_Name     | Birth_Year |
++------------------+------------+
+| Fatma khaled     |       1992 |
+| Mohamed Awad     |       1995 |
+| Wassem Mohamed   |       2020 |
+| Laila Mohamed    |       2020 |
+| Hend  Mohamed    |       1992 |
+| Suliman  Mohamed |       1990 |
+| Mohamed  Wassem  |       1996 |
+| Mohamed Ali      |       1980 |
+| Ali  Mahmoud     |       1998 |
+| Assma  Ahmed     |       1999 |
++------------------+------------+
+10 rows in set (0.00 sec)
+
 
 
 -- 6. Add new exam result, in date column use NOW
