@@ -199,8 +199,6 @@ ORDER BY
 +-----------------+------------+---------------+
 20 rows in set (0.01 sec)
 
-
-
 -- 5. Display the name of students with the year of Birthdate
 
 
