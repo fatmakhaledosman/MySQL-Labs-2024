@@ -701,8 +701,15 @@ SELECT * FROM Student;
 
 -- 16. Dump your database (Grading Database) into SQL file.
 
+mysqldump -u fatma -p --databases electronic_gradekeeping > /home/fatma/dump.sql
 
 -- 17. Dump Students table into file.
 
+mysqldump -u fatma -p  electronic_gradekeeping Student > /home/fatma/Student_dump2.sql
 
 -- 18. Import SQL file into your backup database (Grading_Backup Database)
+
+CREATE DATABASE Grading_Backup2;
+USE Grading_Backup2;
+SOURCE ~/dump.sql
+SHOW TABLES;

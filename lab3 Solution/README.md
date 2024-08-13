@@ -88,9 +88,16 @@
 
 ## 16. Dump your database (Grading Database) into SQL file.
 
+![lab3-33]()
+![lab3-34]()
+
 
 ## 17. Dump Students table into file.
 
+![lab3-35]()
+![lab3-36]()
+
 
 ## 18. Import SQL file into your backup database (Grading_Backup Database)
-
+![lab3-37]()
+![lab3-38]()
