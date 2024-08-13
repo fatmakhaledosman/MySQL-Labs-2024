@@ -46,14 +46,18 @@
 
 ![lab3-16](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-16.png)
 
-![lab3-17]()
+![lab3-17](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-17.png)
 
 ## 10. Create function which takes Exam id and return the number of students who failed in a Exam (Score less than 50).
-![lab3-18]()
-![lab3-19]()
-![lab3-20]()
-![lab3-21]()
-![lab3-22]()
+![lab3-18](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-18.png)
+
+![lab3-19](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-19.png)
+
+![lab3-20](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-20.png)
+
+![lab3-21](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-21.png)
+
+![lab3-22](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-22.png)
 
 ## 11. Create function which take subject name and return the average of max grades for subject
 
