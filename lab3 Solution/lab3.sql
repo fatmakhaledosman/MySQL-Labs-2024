@@ -563,6 +563,62 @@ mysql> DESCRIBE Deleted_Students;
 
 -- 13. Create trigger to save the deleted student from Student table to Deleted_Students.
 
+CREATE TRIGGER trg_SaveDeletedStudent  
+AFTER DELETE ON Student  
+FOR EACH ROW  
+INSERT INTO Deleted_Students (Student_ID, Email, Address, Gender, Birth_Date, First_Name, Last_Name, Track_ID)  
+VALUES (OLD.Student_ID, OLD.Email, OLD.Address, OLD.Gender, OLD.Birth_Date, OLD.First_Name, OLD.Last_Name, OLD.Track_ID);
+
+mysql> SELECT * FROM Student;
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |        1 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |        4 |
+|          5 | hend@example.com       | 901 Pine St  | Female | 1992-10-23 | Hend       |  Mohamed  |        2 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 1996-12-23 | Mohamed    |  Wassem   |        1 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
+|         10 | ali@example.com        | 111 st St    | Male   | 1998-01-05 | Ali        |  Mahmoud  |        1 |
+|         11 | assma@example.com      | 111 Oak St   | Female | 1999-01-05 | Assma      |  Ahmed    |        2 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Deleted_Students;
+Empty set (0.00 sec)
+
+
+DELETE FROM Student WHERE Student_ID = 11;
+
+mysql> SELECT * FROM Student;
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |        1 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |        4 |
+|          5 | hend@example.com       | 901 Pine St  | Female | 1992-10-23 | Hend       |  Mohamed  |        2 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 1996-12-23 | Mohamed    |  Wassem   |        1 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
+|         10 | ali@example.com        | 111 st St    | Male   | 1998-01-05 | Ali        |  Mahmoud  |        1 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Deleted_Students;
++------------+-------------------+------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email             | Address    | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+-------------------+------------+--------+------------+------------+-----------+----------+
+|         11 | assma@example.com | 111 Oak St | Female | 1999-01-05 | Assma      |  Ahmed    |        2 |
++------------+-------------------+------------+--------+------------+------------+-----------+----------+
+1 row in set (0.00 sec)
+
+
+
+
 
 -- 14. Create trigger to save the newly added students to Student table to Backup_Students.
 

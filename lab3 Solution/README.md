@@ -68,7 +68,10 @@
 ![lab3-25](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-25.png)
 
 ## 13. Create trigger to save the deleted student from Student table to Deleted_Students.
-
+![lab3-26]()
+![lab3-27]()
+![lab3-28]()
+![lab3-29]()
 
 ## 14. Create trigger to save the newly added students to Student table to Backup_Students.
 
