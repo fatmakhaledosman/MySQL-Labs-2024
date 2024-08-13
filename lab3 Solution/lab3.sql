@@ -616,12 +616,82 @@ mysql> SELECT * FROM Deleted_Students;
 +------------+-------------------+------------+--------+------------+------------+-----------+----------+
 1 row in set (0.00 sec)
 
-
-
-
-
 -- 14. Create trigger to save the newly added students to Student table to Backup_Students.
+CREATE TABLE Backup_Students LIKE Student;
 
+mysql> SELECT * FROM Backup_Students;
+Empty set (0.01 sec)
+
+mysql> DESCRIBE Backup_Students;
++------------+-----------------------+------+-----+---------+-------+
+| Field      | Type                  | Null | Key | Default | Extra |
++------------+-----------------------+------+-----+---------+-------+
+| Student_ID | int                   | NO   | PRI | NULL    |       |
+| Email      | varchar(100)          | YES  |     | NULL    |       |
+| Address    | varchar(200)          | YES  |     | NULL    |       |
+| Gender     | enum('Male','Female') | YES  |     | NULL    |       |
+| Birth_Date | date                  | YES  |     | NULL    |       |
+| First_Name | varchar(50)           | YES  |     | NULL    |       |
+| Last_Name  | varchar(50)           | YES  |     | NULL    |       |
+| Track_ID   | int                   | YES  | MUL | NULL    |       |
++------------+-----------------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+
+-- or
+
+-- CREATE TABLE Backup_Students ( 
+--   Student_ID int, 
+--   Email varchar(100), 
+--   Address varchar(200), 
+--   Gender enum('Male', 'Female'),
+--   Birth_Date date, 
+--   First_Name varchar(50), 
+--   Last_Name varchar(50),
+--   Track_ID int ,
+--   FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID) ON DELETE CASCADE 
+-- ); 
+
+CREATE TRIGGER trg_Backup_New_Students 
+AFTER INSERT ON Student 
+FOR EACH ROW 
+INSERT INTO Backup_Students (Student_ID, Email, Address, Gender, Birth_Date, First_Name, Last_Name , Track_ID)
+VALUES (NEW.Student_ID, NEW.Email, NEW.Address, NEW.Gender, NEW.Birth_Date, NEW.First_Name, NEW.Last_Name, NEW.Track_ID);
+
+SELECT * FROM Backup_Students;
+
+INSERT INTO Student (Student_ID, Email, Address ,Gender,Birth_Date, First_Name,Last_Name, Track_ID )  
+VALUES   
+(12, 'walaa@example.com', '111 st St', 'Female', '1990-01-05', 'Walaa',' Mahmoud', 1);
+
+SELECT * FROM Backup_Students;
+
++------------+-------------------+-----------+--------+------------+------------+-----------+----------+
+| Student_ID | Email             | Address   | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+-------------------+-----------+--------+------------+------------+-----------+----------+
+|         12 | walaa@example.com | 111 st St | Female | 1990-01-05 | Walaa      |  Mahmoud  |        1 |
++------------+-------------------+-----------+--------+------------+------------+-----------+----------+
+1 row in set (0.00 sec)
+
+
+SELECT * FROM Student;
+
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |        1 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |        4 |
+|          5 | hend@example.com       | 901 Pine St  | Female | 1992-10-23 | Hend       |  Mohamed  |        2 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 1996-12-23 | Mohamed    |  Wassem   |        1 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
+|         10 | ali@example.com        | 111 st St    | Male   | 1998-01-05 | Ali        |  Mahmoud  |        1 |
+|         11 | assma@example.com      | 111 Oak St   | Female | 1999-01-05 | Assma      |  Ahmed    |        2 |
+|         12 | walaa@example.com      | 111 st St    | Female | 1990-01-05 | Walaa      |  Mahmoud  |        1 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+11 rows in set (0.01 sec)
 
 -- 15. (Bouns) Create trigger to keep track the changes of contact info table
 
