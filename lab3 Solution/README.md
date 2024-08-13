@@ -88,16 +88,18 @@
 
 ## 16. Dump your database (Grading Database) into SQL file.
 
-![lab3-33]()
-![lab3-34]()
+![lab3-33](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-33.png)
+
+![lab3-34](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-34.png)
 
 
 ## 17. Dump Students table into file.
 
-![lab3-35]()
-![lab3-36]()
+![lab3-35](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-35.png)
 
+![lab3-36](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-36.png)
 
 ## 18. Import SQL file into your backup database (Grading_Backup Database)
-![lab3-37]()
-![lab3-38]()
+![lab3-37](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-37.png)
+
+![lab3-38](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-38.png)
