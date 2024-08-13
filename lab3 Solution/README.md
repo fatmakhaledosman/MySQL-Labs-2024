@@ -60,7 +60,7 @@
 ![lab3-22](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-22.png)
 
 ## 11. Create function which take subject name and return the average of max grades for subject
-
+![lab3-23]()
 
 ## 12. Create Table called Deleted_Students which will hold the deleted students info(same columns as in student tables)
 

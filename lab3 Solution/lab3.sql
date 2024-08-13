@@ -485,6 +485,35 @@ mysql> SELECT get_failed_students(3) AS failed_students;
 
 
 -- 11. Create function which take subject name and return the average of max grades for subject
+mysql> SELECT * FROM Subject;
++------------+--------+----------------------------+-----------+----------+
+| Subject_ID | Name   | Description                | Max_Score | Track_ID |
++------------+--------+----------------------------+-----------+----------+
+|          1 | C      | C                          |       100 |        2 |
+|          2 | CPP    | CPP                        |       100 |        1 |
+|          3 | HTML   | Hyper Text Markup Language |       300 |        3 |
+|          4 | CSS    | Cascading Style Sheet      |       100 |        4 |
+|          5 | JS     | JavaScript                 |       200 |        2 |
+|          6 | Python | Python Programming         |       300 |        2 |
++------------+--------+----------------------------+-----------+----------+
+6 rows in set (0.01 sec)
+
+DROP FUNCTION IF EXISTS GetAverageMaxGradeForSubject ; 
+
+CREATE FUNCTION GetAverageMaxGradeForSubject (p_SubjectName VARCHAR(50)) 
+RETURNS DECIMAL(5, 2) 
+DETERMINISTIC 
+RETURN (SELECT AVG(s.Max_Score) FROM Subject s WHERE s.Name = p_SubjectName);
+
+ SELECT GetAverageMaxGradeForSubject('Python') AS AverageMaxGrade;
+
+mysql> SELECT GetAverageMaxGradeForSubject('Python') AS AverageMaxGrade;
++-----------------+
+| AverageMaxGrade |
++-----------------+
+|          300.00 |
++-----------------+
+1 row in set (0.00 sec)
 
 
 -- 12. Create Table called Deleted_Students which will hold the deleted students info(same columns as in student tables)
