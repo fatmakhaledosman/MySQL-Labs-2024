@@ -77,9 +77,11 @@
 ![lab3-29](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-29.png)
 
 ## 14. Create trigger to save the newly added students to Student table to Backup_Students.
-![lab3-30]()
-![lab3-31]()
-![lab3-32]()
+![lab3-30](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-30.png)
+
+![lab3-31](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-31.png)
+
+![lab3-32](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-32.png)
 
 ## 15. (Bouns) Create trigger to keep track the changes of contact info table (add/update rows); it will logs the time of action and description of action to another table.
 
