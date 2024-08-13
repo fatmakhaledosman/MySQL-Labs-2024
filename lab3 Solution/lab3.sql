@@ -518,6 +518,48 @@ mysql> SELECT GetAverageMaxGradeForSubject('Python') AS AverageMaxGrade;
 
 -- 12. Create Table called Deleted_Students which will hold the deleted students info(same columns as in student tables)
 
+mysql> DESCRIBE Student;
++------------+-----------------------+------+-----+---------+-------+
+| Field      | Type                  | Null | Key | Default | Extra |
++------------+-----------------------+------+-----+---------+-------+
+| Student_ID | int                   | NO   | PRI | NULL    |       |
+| Email      | varchar(100)          | YES  |     | NULL    |       |
+| Address    | varchar(200)          | YES  |     | NULL    |       |
+| Gender     | enum('Male','Female') | YES  |     | NULL    |       |
+| Birth_Date | date                  | YES  |     | NULL    |       |
+| First_Name | varchar(50)           | YES  |     | NULL    |       |
+| Last_Name  | varchar(50)           | YES  |     | NULL    |       |
+| Track_ID   | int                   | YES  | MUL | NULL    |       |
++------------+-----------------------+------+-----+---------+-------+
+8 rows in set (0.02 sec)
+
+CREATE TABLE Deleted_Students 
+( Student_ID int, 
+  Email varchar(100), 
+  Address varchar(200), 
+  Gender enum('Male', 'Female'),
+  Birth_Date date, 
+  First_Name varchar(50), 
+  Last_Name varchar(50),
+  Track_ID int ,
+  FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID) ON DELETE CASCADE 
+); 
+
+mysql> DESCRIBE Deleted_Students;
++------------+-----------------------+------+-----+---------+-------+
+| Field      | Type                  | Null | Key | Default | Extra |
++------------+-----------------------+------+-----+---------+-------+
+| Student_ID | int                   | YES  |     | NULL    |       |
+| Email      | varchar(100)          | YES  |     | NULL    |       |
+| Address    | varchar(200)          | YES  |     | NULL    |       |
+| Gender     | enum('Male','Female') | YES  |     | NULL    |       |
+| Birth_Date | date                  | YES  |     | NULL    |       |
+| First_Name | varchar(50)           | YES  |     | NULL    |       |
+| Last_Name  | varchar(50)           | YES  |     | NULL    |       |
+| Track_ID   | int                   | YES  | MUL | NULL    |       |
++------------+-----------------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
 
 -- 13. Create trigger to save the deleted student from Student table to Deleted_Students.
 

@@ -63,7 +63,8 @@
 ![lab3-23]()
 
 ## 12. Create Table called Deleted_Students which will hold the deleted students info(same columns as in student tables)
-
+![lab3-24]()
+![lab3-25]()
 
 ## 13. Create trigger to save the deleted student from Student table to Deleted_Students.
 
