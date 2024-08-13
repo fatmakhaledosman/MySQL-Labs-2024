@@ -336,15 +336,15 @@ mysql> SELECT * FROM Student_Subject;
 
 
 mysql> INSERT INTO Exam_Result (Exam_ID, Student_ID, Score)  
-    -> VALUES  
-    -> (1, 1, 80),        
-    -> (1, 2, 90),  
-    -> (1, 5, 40), 
-    -> (2, 1, 70),  
-    -> (2, 2, 20),
-    -> (3, 1, 100),
-    -> (3, 3, 100),
-    -> (3, 4, 10); 
+       VALUES  
+       (1, 1, 80),        
+       (1, 2, 90),  
+       (1, 5, 40), 
+       (2, 1, 70),  
+       (2, 2, 20),
+       (3, 1, 100),
+       (3, 3, 100),
+       (3, 4, 10); 
 Query OK, 8 rows affected (0.01 sec)
 Records: 8  Duplicates: 0  Warnings: 0
 

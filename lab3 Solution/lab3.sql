@@ -381,7 +381,107 @@ mysql> SELECT * FROM Exam_Result;
 20 rows in set (0.00 sec)
 
 
--- 10. Create function which takes Exam id and return the number of students who failed in a Exam (Score less than 50).
+-- 10. Create function which takes Exam id and return the number of students 
+-- who failed in a Exam (Score less than 50).
+
+mysql> SELECT * FROM Exam_Result;
++---------+------------+-------+
+| Exam_ID | Student_ID | Score |
++---------+------------+-------+
+|       1 |          1 |    80 |
+|       1 |          2 |    90 |
+|       1 |          5 |    40 |
+|       1 |          6 |    85 |
+|       1 |          7 |    85 |
+|       1 |         10 |    60 |
+|       1 |         11 |    85 |
+|       2 |          1 |    70 |
+|       2 |          2 |    20 |
+|       2 |          6 |    90 |
+|       2 |          7 |    10 |
+|       2 |         10 |    90 |
+|       2 |         11 |    90 |
+|       3 |          1 |   100 |
+|       3 |          3 |   100 |
+|       3 |          4 |    10 |
+|       3 |          6 |    80 |
+|       3 |          7 |    20 |
+|       3 |         10 |    55 |
+|       3 |         11 |    80 |
++---------+------------+-------+
+20 rows in set (0.00 sec)
+
+
+SELECT COUNT(*) 
+FROM Exam_Result 
+WHERE Exam_ID = 1 AND Score < 50; 
+
++----------+
+| COUNT(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+SELECT COUNT(*) 
+FROM Exam_Result 
+WHERE Exam_ID = 2 AND Score < 50; 
+
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+SELECT COUNT(*) 
+FROM Exam_Result 
+WHERE Exam_ID = 3 AND Score < 50; 
+
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+ 
+DROP FUNCTION IF EXISTS get_failed_students;    
+
+CREATE FUNCTION get_failed_students(exam_id INT)  
+RETURNS INT  
+DETERMINISTIC  
+RETURN (  
+  SELECT COUNT(DISTINCT er.Student_ID)  
+  FROM Exam_Result er  
+  WHERE er.Exam_ID = exam_id AND er.Score < 50  
+);
+
+
+mysql> SELECT get_failed_students(2) AS failed_students;
++-----------------+
+| failed_students |
++-----------------+
+|               2 |
++-----------------+
+1 row in set (0.01 sec)
+
+mysql> 
+mysql> SELECT get_failed_students(1) AS failed_students;
++-----------------+
+| failed_students |
++-----------------+
+|               1 |
++-----------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT get_failed_students(3) AS failed_students;
++-----------------+
+| failed_students |
++-----------------+
+|               2 |
++-----------------+
+1 row in set (0.00 sec)
+
 
 
 -- 11. Create function which take subject name and return the average of max grades for subject

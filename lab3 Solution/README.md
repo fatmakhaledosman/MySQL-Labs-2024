@@ -46,8 +46,14 @@
 
 ![lab3-16](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-16.png)
 
-## 10. Create function which takes Exam id and return the number of students who failed in a Exam (Score less than 50).
+![lab3-17]()
 
+## 10. Create function which takes Exam id and return the number of students who failed in a Exam (Score less than 50).
+![lab3-18]()
+![lab3-19]()
+![lab3-20]()
+![lab3-21]()
+![lab3-22]()
 
 ## 11. Create function which take subject name and return the average of max grades for subject
 
