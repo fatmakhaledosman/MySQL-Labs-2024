@@ -50,8 +50,9 @@
 
 ## 10.How to Import SQL file into your database
 
-![lab3-2-10-1]()
-![lab3-2-10-2]()
+![lab3-2-10-1](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-10-1.png)
+
+![lab3-2-10-2](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-10-2.png)
 
 ## 11. Create Table called Archive_Students(Deleted_Students) which will hold the deleted students info(same columns as in student tables)
 
