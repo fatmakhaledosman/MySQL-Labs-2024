@@ -29,9 +29,11 @@
 ![lab3-2-6](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-6.png)
 
 ## 7. Create AddNewStudent function which take Student firstName and lastname and birthdate and TrackName and add this new student info at database
-![lab3-2-7-1]()
-![lab3-2-7-2]()
-![lab3-2-7-3]()
+![lab3-2-7-1](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-7-1.png)
+
+![lab3-2-7-2](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-7-2.png)
+
+![lab3-2-7-3](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-7-3.png)
 
 ## 8. Create function which takes StudentId and return the string/text that describe the use info(firstname, last name, TrackName).
 
