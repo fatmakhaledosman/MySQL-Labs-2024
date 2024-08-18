@@ -182,6 +182,57 @@ mysql> SELECT is_even(25);
 -- 8. Create function which takes StudentId and return the string/text that
 --    describe the use info(firstname, last name, TrackName).
 
+DROP FUNCTION IF EXISTS get_student_info;
+
+Student Table 
+( Student_ID ,Email, Address ,Gender,Birth_Date ,First_Name ,Last_Name , Track_ID  )
+Track (Track_ID, Track_Name)
+Exam ( Exam_ID , Exam_Date  , Subject_ID) 
+Exam_Result ( Exam_ID , Student_ID , Score )
+
+
+
+CREATE FUNCTION GetStudentInfo(p_StudentId INT)  
+RETURNS VARCHAR(255)  
+DETERMINISTIC
+RETURN (  
+   SELECT CONCAT_WS(' ', s.First_Name, s.Last_Name, t.Track_Name)  
+   FROM Student s  
+   JOIN Track t ON s.Track_ID = t.Track_ID  
+   WHERE s.Student_ID = p_StudentId  
+   );
+
+SELECT GetStudentInfo(1) AS Student_Info; 
+SELECT GetStudentInfo(2) AS Student_Info; 
+SELECT GetStudentInfo(3) AS Student_Info;
+
+
+mysql> SELECT GetStudentInfo(1) AS Student_Info; 
++-----------------------------------------+
+| Student_Info                            |
++-----------------------------------------+
+| Fatma khaled Cloud Platform Development |
++-----------------------------------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT GetStudentInfo(2) AS Student_Info;
++--------------------------------------+
+| Student_Info                         |
++--------------------------------------+
+| Mohamed Awad Open Source Application |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT GetStudentInfo(3) AS Student_Info;
++----------------------------------------+
+| Student_Info                           |
++----------------------------------------+
+| Wassem Mohamed Artificial intelligence |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+
+
 
 -- 9. Create function which takes student id and subject id and return score the
 --    student in subject.
