@@ -591,3 +591,93 @@ SELECT * FROM Student;
 -- 14.Create trigger to keep track the changes of Tracks table (update rows); it will
 --    logs the time of action and description of action to another Logs table.
 
+
+-- 1.Student Table 
+-- (Student_ID ,Email, Address ,Gender,Birth_Date ,First_Name ,Last_Name , Track_ID  )
+-- 2.Phone (Phone_ID ,Phone_Number, Student_ID )
+-- 3.Subject (Subject_ID ,Name, Description ,Max_Score ,Track_ID)
+-- 4. Student_Subject (Student_ID ,Subject_ID )
+-- 5.Track (Track_ID, Track_Name)
+-- 6.Exam ( Exam_ID , Exam_Date  , Subject_ID) 
+-- 7.Exam_Result ( Exam_ID , Student_ID , Score )
+
+CREATE TABLE Logs (  
+  Log_ID INT AUTO_INCREMENT,  
+  Track_ID INT,  
+  Action_Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
+  Action_Description VARCHAR(255),  
+  PRIMARY KEY (Log_ID),  
+  FOREIGN KEY (Track_ID) REFERENCES Track(Track_ID)  ON DELETE CASCADE
+);  
+  
+DELIMITER //  
+  
+CREATE TRIGGER trg_track_update  
+AFTER UPDATE ON Track 
+FOR EACH ROW  
+BEGIN  
+  INSERT INTO Logs (Track_ID, Action_Description)  
+  VALUES (NEW.Track_ID, CONCAT('Updated Track ', NEW.Track_Name, 'n ', NOW()));  
+END//  
+DELIMITER ;
+
+
+mysql> SELECT * FROM Track;
++----------+-------------------------------------+
+| Track_ID | Track_Name                          |
++----------+-------------------------------------+
+|        1 | Open Source Application             |
+|        2 | Cloud Platform Development          |
+|        3 | Artificial intelligence             |
+|        4 | Full Stack Development Using Python |
++----------+-------------------------------------+
+4 rows in set (0.01 sec)
+
+mysql> INSERT INTO Track (Track_ID , Track_Name ) VALUES (5,'IOT');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Track;
++----------+-------------------------------------+
+| Track_ID | Track_Name                          |
++----------+-------------------------------------+
+|        1 | Open Source Application             |
+|        2 | Cloud Platform Development          |
+|        3 | Artificial intelligence             |
+|        4 | Full Stack Development Using Python |
+|        5 | IOT                                 |
++----------+-------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Logs;
+Empty set (0.01 sec)
+
+
+mysql> UPDATE  Track SET Track_Name='OS IOT' WHERE  Track_ID = 5;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+mysql> SELECT * FROM Track;
++----------+-------------------------------------+
+| Track_ID | Track_Name                          |
++----------+-------------------------------------+
+|        1 | Open Source Application             |
+|        2 | Cloud Platform Development          |
+|        3 | Artificial intelligence             |
+|        4 | Full Stack Development Using Python |
+|        5 | OS IOT                              |
++----------+-------------------------------------+
+5 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM Logs;
++--------+----------+---------------------+-------------------------------------------+
+| Log_ID | Track_ID | Action_Timestamp    | Action_Description                        |
++--------+----------+---------------------+-------------------------------------------+
+|      1 |        5 | 2024-08-18 13:59:59 | Updated Track OS IOTn 2024-08-18 13:59:59 |
++--------+----------+---------------------+-------------------------------------------+
+1 row in set (0.00 sec)
+
+
+
+

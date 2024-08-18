@@ -82,6 +82,9 @@
 
 ## 14.Create trigger to keep track the changes of Tracks table (update rows); it will logs the time of action and description of action to another Logs table.
 
-
+![lab3-2-14-1]()
+![lab3-2-14-2]()
+![lab3-2-14-3]()
+![lab3-2-14-4]()
 
 
