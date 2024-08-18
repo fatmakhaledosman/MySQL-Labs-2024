@@ -376,6 +376,39 @@ SELECT get_student_score(1, 1) AS score;
 
 -- 10.How to Import SQL file into your database
 
+mysql> CREATE DATABASE ITI;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE ITI;
+Database changed
+
+mysql> SOURCE /home/fatma/dump.sql
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+mysql> SHOW TABLES;
++-----------------------------------+
+| Tables_in_electronic_gradekeeping |
++-----------------------------------+
+| Backup_Students                   |
+| Deleted_Students                  |
+| Exam                              |
+| Exam_Result                       |
+| Phone                             |
+| Student                           |
+| StudentNames_subjects             |
+| StudentNames_subjects2            |
+| Student_Subject                   |
+| Subject                           |
+| Track                             |
+| student_scores                    |
+| student_tracks                    |
+| subject_max_scores                |
+| track_subjects                    |
++-----------------------------------+
+15 rows in set (0.00 sec)
 
 -- 11.Create Table called Archive_Students which will hold the deleted students
 --    info(same columns as in student tables)

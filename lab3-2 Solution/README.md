@@ -50,8 +50,8 @@
 
 ## 10.How to Import SQL file into your database
 
-
-
+![lab3-2-10-1]()
+![lab3-2-10-2]()
 
 ## 11. Create Table called Archive_Students(Deleted_Students) which will hold the deleted students info(same columns as in student tables)
 
