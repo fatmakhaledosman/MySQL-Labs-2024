@@ -40,7 +40,10 @@
 ![lab3-2-8](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-8.png)
 ## 9. Create function which takes student id and subject id and return score the student in subject.
 
-
+![lab3-2-9-1]()
+![lab3-2-9-2]()
+![lab3-2-9-3]()
+![lab3-2-9-4]()
 ## 10.How to Import SQL file into your database
 
 

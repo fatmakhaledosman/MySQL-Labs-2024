@@ -328,9 +328,51 @@ mysql> SELECT GetStudentInfo(3) AS Student_Info;
 
 
 
--- 9. Create function which takes student id and subject id and return score the
---    student in subject.
+-- 9. Create function which takes student id and subject id and return score the student in subject.
+1.Student Table 
+(Student_ID ,Email, Address ,Gender,Birth_Date ,First_Name ,Last_Name , Track_ID  )
+2.Phone (Phone_ID ,Phone_Number, Student_ID )
+3.Subject (Subject_ID ,Name, Description ,Max_Score ,Track_ID)
+4. Student_Subject (Student_ID ,Subject_ID )
+5.Track (Track_ID, Track_Name)
+6.Exam ( Exam_ID , Exam_Date  , Subject_ID) 
+7.Exam_Result ( Exam_ID , Student_ID , Score )
 
+DROP FUNCTION IF EXISTS get_student_score;
+
+DELIMITER //  
+CREATE FUNCTION get_student_score(p_student_id INT, p_subject_id INT)  
+RETURNS DECIMAL(5,2)  
+DETERMINISTIC  
+BEGIN  
+    DECLARE score DECIMAL(5,2);  
+    SELECT er.Score  INTO score  
+    FROM Exam_Result er  
+    INNER JOIN Exam e ON er.Exam_ID = e.Exam_ID  
+    WHERE er.Student_ID = p_student_id 
+    AND e.Subject_ID = p_subject_id;  
+    RETURN score;  
+END//  
+DELIMITER ;
+
+mysql> DELIMITER ;
+mysql> SELECT get_student_score(1, 2) AS score;
++-------+
+| score |
++-------+
+| 70.00 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT get_student_score(1, 1) AS score;
++-------+
+| score |
++-------+
+| 80.00 |
++-------+
+1 row in set (0.00 sec)
+
+SELECT get_student_score(1, 1) AS score;
 
 -- 10.How to Import SQL file into your database
 
