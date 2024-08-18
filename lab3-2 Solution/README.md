@@ -26,7 +26,7 @@
 ![lab3-14](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-14.png)
 
 ## 6. Create function which takes number and return if this number is odd or even.
-![lab3-2-6]()
+![lab3-2-6](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3-2/lab3-2-6.png)
 
 ## 7. Create AddNewStudent function which take Student firstName and lastname and birthdate and TrackName and add this new student info at database
 
