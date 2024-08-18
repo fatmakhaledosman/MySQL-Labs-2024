@@ -175,22 +175,116 @@ mysql> SELECT is_even(25);
 1 row in set (0.01 sec)
 
 
--- 7. Create AddNewStudent function which take Student firstName and lastname
---    and birthdate and TrackName and add this new student info at database
+-- 7. Create AddNewStudent function which take Student firstName and lastname and birthdate and TrackName and add this new student info at database
 
+1.Student Table 
+(Student_ID ,Email, Address ,Gender,Birth_Date ,First_Name ,Last_Name , Track_ID  )
+2.Phone (Phone_ID ,Phone_Number, Student_ID )
+3.Subject (Subject_ID ,Name, Description ,Max_Score ,Track_ID)
+4. Student_Subject (Student_ID ,Subject_ID )
+5.Track (Track_ID, Track_Name)
+6.Exam ( Exam_ID , Exam_Date  , Subject_ID) 
+7.Exam_Result ( Exam_ID , Student_ID , Score )
+
+DROP FUNCTION IF EXISTS AddNewStudent;
+
+-- DELIMITER //  
+-- CREATE FUNCTION AddNewStudent(  
+--   firstName VARCHAR(50),  
+--   lastName VARCHAR(50),  
+--   birthDate DATE,  
+--   trackName VARCHAR(50)  
+-- ) RETURNS INT DETERMINISTIC  
+-- BEGIN  
+--   DECLARE trackID INT;  
+--   DECLARE newStudentID INT;  
+--   SELECT Track_ID INTO trackID  
+--   FROM Track  
+--   WHERE Track_Name = trackName;  
+--   INSERT INTO Student (Email, Address, Gender, Birth_Date, First_Name, Last_Name, Track_ID)  
+--   VALUES (NULL, NULL, NULL, birthDate, firstName, lastName, trackID);  
+--   SET newStudentID = LAST_INSERT_ID();  
+--   INSERT INTO Phone (Phone_Number, Student_ID)  
+--   VALUES ('000-000-0000', newStudentID);  
+--   RETURN newStudentID;  
+-- END//
+
+
+DELIMITER //  
+CREATE FUNCTION Add_NewStudent(  
+  studentID INT,  
+  firstName VARCHAR(50),  
+  lastName VARCHAR(50),  
+  birthDate DATE,  
+  trackName VARCHAR(50)  
+) RETURNS INT DETERMINISTIC  
+BEGIN  
+  DECLARE trackID INT;  
+  SELECT Track_ID INTO trackID  
+  FROM Track  
+  WHERE Track_Name = trackName;  
+  INSERT INTO Student (Student_ID, Email, Address, Gender, Birth_Date, First_Name, Last_Name, Track_ID)  
+  VALUES (studentID, NULL, NULL, NULL, birthDate, firstName, lastName, trackID);  
+  INSERT INTO Phone (Phone_ID,Phone_Number, Student_ID)  
+  VALUES (15,'000-000-0000', studentID);  
+  RETURN studentID;  
+END//
+
+
+SELECT Add_NewStudent(15, 'Ali', 'Mahmoud', '1990-01-01', 'Open Source Application') 
+AS new_student_id;
+
+
+mysql> SELECT Add_NewStudent(15, 'Ali', 'Mahmoud', '1990-01-01', 'Open Source Application') 
+    -> AS new_student_id;
+    -> //
++----------------+
+| new_student_id |
++----------------+
+|             15 |
++----------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT * FROM Student;
+    -> //
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+| Student_ID | Email                  | Address      | Gender | Birth_Date | First_Name | Last_Name | Track_ID |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+|          1 | fatma@example.com      | 123 Main St  | Female | 1992-01-03 | Fatma      | khaled    |        2 |
+|          2 | mohamed@example.com    | 456 Elm St   | Male   | 1995-11-25 | Mohamed    | Awad      |        1 |
+|          3 | wassem@example.com     | 789 Oak St   | Male   | 2020-12-05 | Wassem     | Mohamed   |        3 |
+|          4 | laila@example.com      | 321 Maple St | Female | 2020-12-05 | Laila      | Mohamed   |        4 |
+|          5 | hend@example.com       | 901 Pine St  | Female | 1992-10-23 | Hend       |  Mohamed  |        2 |
+|          6 | suliman@example.com    | 111 Oak St   | Male   | 1990-01-12 | Suliman    |  Mohamed  |        2 |
+|          7 | m_wassem@example.com   | 1 Oak St     | Male   | 1996-12-23 | Mohamed    |  Wassem   |        1 |
+|          9 | mohamedali@example.com | 115 Oakto St | Male   | 1980-02-28 | Mohamed    | Ali       |        1 |
+|         10 | ali@example.com        | 111 st St    | Male   | 1998-01-05 | Ali        |  Mahmoud  |        1 |
+|         11 | assma@example.com      | 111 Oak St   | Female | 1999-01-05 | Assma      |  Ahmed    |        2 |
+|         12 | walaa@example.com      | 111 st St    | Female | 1990-01-05 | Walaa      |  Mahmoud  |        1 |
+|         15 | NULL                   | NULL         | NULL   | 1990-01-01 | Ali        | Mahmoud   |        1 |
++------------+------------------------+--------------+--------+------------+------------+-----------+----------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Phone;
+    -> //
++----------+--------------+------------+
+| Phone_ID | Phone_Number | Student_ID |
++----------+--------------+------------+
+|        1 | 123-456-7890 |          1 |
+|        2 | 987-654-3210 |          2 |
+|        3 | 555-123-4567 |          3 |
+|        4 | 555-901-2345 |          4 |
+|        5 | 555-111-2222 |          5 |
+|        6 | 555-123-4567 |          6 |
+|        7 | 777-123-4567 |          7 |
+|       15 | 000-000-0000 |         15 |
++----------+--------------+------------+
+8 rows in set (0.00 sec)
 
 -- 8. Create function which takes StudentId and return the string/text that
 --    describe the use info(firstname, last name, TrackName).
 
 DROP FUNCTION IF EXISTS get_student_info;
-
-Student Table 
-( Student_ID ,Email, Address ,Gender,Birth_Date ,First_Name ,Last_Name , Track_ID  )
-Track (Track_ID, Track_Name)
-Exam ( Exam_ID , Exam_Date  , Subject_ID) 
-Exam_Result ( Exam_ID , Student_ID , Score )
-
-
 
 CREATE FUNCTION GetStudentInfo(p_StudentId INT)  
 RETURNS VARCHAR(255)  
