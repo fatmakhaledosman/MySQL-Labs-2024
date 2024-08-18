@@ -42,7 +42,8 @@
 
 
 
-## 11. Create Table called Deleted_Students which will hold the deleted students info(same columns as in student tables)
+## 11. Create Table called Archive_Students(Deleted_Students) which will hold the deleted students info(same columns as in student tables)
+
 ![lab3-24](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-24.png)
 
 ![lab3-25](https://github.com/fatmakhaledosman/MySQL-Labs-2024/blob/main/Labs-images/lab3/lab3-25.png)
