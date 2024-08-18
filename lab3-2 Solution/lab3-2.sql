@@ -141,6 +141,38 @@ mysql> SELECT product(5 , 5);
 1 row in set (0.00 sec)
 
 -- 6. Create function which takes number and return if this number is odd or even.
+DROP FUNCTION IF EXISTS is_even;
+
+
+CREATE FUNCTION is_even(n INT) 
+RETURNS VARCHAR(5) 
+DETERMINISTIC  
+RETURN IF(MOD(N,2) = 0, 'even' , 'odd');
+
+
+mysql> SELECT is_even(10);
++-------------+
+| is_even(10) |
++-------------+
+| even        |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT is_even(11);
++-------------+
+| is_even(11) |
++-------------+
+| odd         |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT is_even(25);
++-------------+
+| is_even(25) |
++-------------+
+| odd         |
++-------------+
+1 row in set (0.01 sec)
 
 
 -- 7. Create AddNewStudent function which take Student firstName and lastname
