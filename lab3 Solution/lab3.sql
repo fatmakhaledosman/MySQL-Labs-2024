@@ -273,7 +273,8 @@ SELECT * FROM Exam;
 +---------+------------+------------+
 6 rows in set (0.00 sec)
 
--- 7. Create Hello world function which take username and return welcome message to user using his name
+-- 7. Create Hello world function which take username and return welcome message
+-- to user using his name
 
 CREATE FUNCTION hello (username VARCHAR(50)) 
 RETURNS VARCHAR(100) 
@@ -312,6 +313,8 @@ mysql> SELECT product(5 , 5);
 | product= 25;   |
 +----------------+
 1 row in set (0.00 sec)
+
+
 
 -- 9. Create function which takes student id and Exam id and return score the student in Exam.
 Student Table 
